@@ -13,6 +13,7 @@ Portfólio profissional de **Gustavo Marques Lopes Ribeiro** — Desenvolvedor F
 Portfólio moderno e responsivo com design premium dark, animações suaves e performance otimizada. 100% estático (SSG), pronto para deploy no Vercel.
 
 ### Seções
+
 - **Hero** — Apresentação com avatar, CTAs e animações de entrada
 - **Sobre** — Narrativa profissional com cards de interesses
 - **Skills** — Categorias técnicas com barras de progresso animadas
@@ -21,12 +22,13 @@ Portfólio moderno e responsivo com design premium dark, animações suaves e pe
 - **Contato** — Formulário de contato e links sociais
 
 ### Projetos em Destaque
-| Projeto | Tecnologias | Links |
-|---------|------------|-------|
-| **Auth App** | Next.js, TypeScript, Firebase, Tailwind | [Código](https://github.com/Gustavomrib/LoginGoogle) · [Demo](https://login-google-sooty.vercel.app) |
-| **Assistente de Análise de Texto com IA** | Python, NLP | [Código](https://github.com/Gustavomrib/-ASSISTENTE-DE-AN-LISE-DE-TEXTO-COM-IA) |
-| **TechPlanner** | JavaScript, HTML, CSS | [Código](https://github.com/Gustavomrib/TechPlanner) |
-| **Surface E-Commerce** | JavaScript, Full Stack (Collab) | [Código](https://github.com/thalles-j/surface-test) |
+
+| Projeto                                   | Tecnologias                             | Links                                                                                                |
+| ----------------------------------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Auth App**                              | Next.js, TypeScript, Firebase, Tailwind | [Código](https://github.com/Gustavomrib/LoginGoogle) · [Demo](https://login-google-sooty.vercel.app) |
+| **Assistente de Análise de Texto com IA** | Python, NLP                             | [Código](https://github.com/Gustavomrib/-ASSISTENTE-DE-AN-LISE-DE-TEXTO-COM-IA)                      |
+| **TechPlanner**                           | JavaScript, HTML, CSS                   | [Código](https://github.com/Gustavomrib/TechPlanner)                                                 |
+| **Surface E-Commerce**                    | JavaScript, Full Stack (Collab)         | [Código](https://github.com/thalles-j/surface-test)                                                  |
 
 ---
 
