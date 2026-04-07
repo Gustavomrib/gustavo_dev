@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── Color System ── */
+  --color-background: #06060a;
+  --color-foreground: #e8e8ed;
+  --color-primary: #7c7fff;
+  --color-primary-light: #9b9eff;
+  --color-primary-dark: #6366f1;
+  --color-accent: #38bdf8;
+  --color-surface: #0e0e14;
+  --color-surface-light: #16161f;
+  --color-surface-elevated: #1c1c28;
+  --color-border: #1e1e2e;
+  --color-border-light: #2a2a3e;
+  --color-muted: #8b8ba3;
+  --color-muted-foreground: #64648a;
+
+  /* ── Font ── */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar (Webkit) ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-light);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}
+
+/* ── Scrollbar (Firefox) ── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-light) transparent;
+}
+
+/* ── Selection ── */
+::selection {
+  background: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  color: var(--color-foreground);
+}
+
+/* ── Focus Ring Global ── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ── Prevent layout shift on scroll ── */
+html {
+  scrollbar-gutter: stable;
+}
