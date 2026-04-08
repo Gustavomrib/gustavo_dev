@@ -1,18 +1,58 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { ArrowRight, Download, Mail, Sparkles } from "lucide-react";
 import { siteData, t } from "@/data/site";
 import Image from "next/image";
 
-const ease = [0.25, 0.46, 0.45, 0.94] as const;
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
 
+  const mouseX = useMotionValue(50);
+  const mouseY = useMotionValue(32);
+  const smoothX = useSpring(mouseX, { stiffness: 120, damping: 24, mass: 0.4 });
+  const smoothY = useSpring(mouseY, { stiffness: 120, damping: 24, mass: 0.4 });
+
+  const avatarTranslateY = useTransform(smoothY, [0, 100], [-10, 10]);
+  const avatarTranslateX = useTransform(smoothX, [0, 100], [-8, 8]);
+  const textTranslateY = useTransform(smoothY, [0, 100], [-4, 4]);
+  const textTranslateX = useTransform(smoothX, [0, 100], [-3, 3]);
+
+  const cursorGlow = useMotionTemplate`radial-gradient(circle at ${smoothX}% ${smoothY}%, rgba(176,155,255,0.18), transparent 18%)`;
+
   const handleScroll = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handlePointerMove = ({
+    currentTarget,
+    clientX,
+    clientY,
+  }: React.MouseEvent<HTMLElement>) => {
+    if (reduceMotion) return;
+
+    const rect = currentTarget.getBoundingClientRect();
+    const x = ((clientX - rect.left) / rect.width) * 100;
+    const y = ((clientY - rect.top) / rect.height) * 100;
+
+    mouseX.set(Math.max(0, Math.min(100, x)));
+    mouseY.set(Math.max(0, Math.min(100, y)));
+  };
+
+  const handlePointerLeave = () => {
+    if (reduceMotion) return;
+    mouseX.set(50);
+    mouseY.set(32);
   };
 
   const reveal = (delay: number, y = 20, scale?: number) =>
@@ -21,21 +61,94 @@ export default function Hero() {
       : {
           initial: scale ? { opacity: 0, scale } : { opacity: 0, y },
           animate: scale ? { opacity: 1, scale: 1 } : { opacity: 1, y: 0 },
-          transition: { delay, duration: 0.6, ease },
+          transition: { delay, duration: 0.9, ease },
         };
 
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      onMouseMove={handlePointerMove}
+      onMouseLeave={handlePointerLeave}
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-primary/[0.07] rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.05] rounded-full blur-[100px]" />
+        <motion.div
+          style={
+            reduceMotion
+              ? undefined
+              : {
+                  x: useTransform(smoothX, [0, 100], [-16, 16]),
+                  y: useTransform(smoothY, [0, 100], [-20, 14]),
+                }
+          }
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  x: [0, 24, 0],
+                  y: [0, -18, 0],
+                  scale: [1, 1.05, 1],
+                }
+          }
+          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[980px] h-[640px] bg-primary/[0.09] rounded-full blur-[135px]"
+        />
+        <motion.div
+          style={
+            reduceMotion
+              ? undefined
+              : {
+                  x: useTransform(smoothX, [0, 100], [16, -18]),
+                  y: useTransform(smoothY, [0, 100], [12, -12]),
+                }
+          }
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  x: [0, -24, 0],
+                  y: [0, 14, 0],
+                  scale: [1, 1.08, 1],
+                }
+          }
+          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-[-4%] right-[-2%] w-[560px] h-[560px] bg-accent/[0.08] rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  x: [0, 18, 0],
+                  opacity: [0.16, 0.3, 0.16],
+                }
+          }
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          className="absolute left-[10%] top-[24%] hidden md:block w-64 h-64 rounded-full bg-primary/10 blur-[104px]"
+        />
+        <motion.div
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  x: [0, -14, 0],
+                  y: [0, 12, 0],
+                  opacity: [0.1, 0.18, 0.1],
+                }
+          }
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute right-[16%] top-[16%] hidden lg:block w-40 h-40 rounded-full bg-white/8 blur-[88px]"
+        />
       </div>
 
+      <motion.div
+        className="absolute inset-0 pointer-events-none opacity-80"
+        aria-hidden="true"
+        style={reduceMotion ? undefined : { background: cursorGlow }}
+      />
+
       <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         aria-hidden="true"
         style={{
           backgroundImage:
@@ -44,94 +157,152 @@ export default function Hero() {
         }}
       />
 
+      <div
+        className="absolute inset-0 pointer-events-none opacity-60"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(138,123,255,0.08) 0%, transparent 26%, transparent 74%, rgba(45,212,191,0.08) 100%)",
+        }}
+      />
+
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28 flex flex-col-reverse lg:flex-row items-center gap-10 sm:gap-14 lg:gap-20">
-        <div className="flex-1 text-center lg:text-left w-full">
+        <motion.div
+          className="flex-1 text-center lg:text-left w-full"
+          style={
+            reduceMotion
+              ? undefined
+              : { x: textTranslateX, y: textTranslateY }
+          }
+        >
           <motion.div
-            {...reveal(0.12, 16)}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-primary/[0.14] to-accent/[0.10] border border-primary/[0.18] mb-7"
+            {...reveal(0.08, 16)}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-primary/[0.14] to-accent/[0.10] border border-primary/[0.18] mb-7 shadow-[0_14px_40px_rgba(0,0,0,0.18)]"
           >
             <Sparkles size={13} className="text-primary" />
-            <span className="text-xs font-medium text-primary tracking-wide">
+            <span className="text-xs font-medium text-primary tracking-[0.18em] uppercase">
               {t(siteData.cta)}
             </span>
           </motion.div>
 
           <motion.h1
-            {...reveal(0.2)}
-            className="text-[2.2rem] sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold tracking-tight leading-[1.02] mb-4"
+            {...reveal(0.18, 28)}
+            className="text-[2.25rem] sm:text-5xl lg:text-[3.8rem] xl:text-[4.5rem] font-bold tracking-[-0.045em] leading-[0.96] mb-5"
           >
-            <span className="bg-gradient-to-r from-primary via-foreground to-accent bg-clip-text text-transparent">
+            <span className="block text-white/80 text-sm sm:text-base tracking-[0.26em] uppercase mb-4 font-medium">
+              Portfolio
+            </span>
+            <span className="bg-[linear-gradient(135deg,var(--color-foreground),rgba(255,255,255,0.94)_28%,var(--color-primary-light)_58%,var(--color-accent)_100%)] bg-clip-text text-transparent">
               {siteData.name}
             </span>
             <span className="text-primary">.</span>
           </motion.h1>
 
           <motion.p
-            {...reveal(0.28)}
-            className="text-lg sm:text-xl lg:text-2xl text-muted font-medium mb-4 tracking-tight"
+            {...reveal(0.28, 22)}
+            className="text-lg sm:text-xl lg:text-[1.65rem] text-muted font-medium mb-5 tracking-tight"
           >
-            {t(siteData.role)}
+            <span className="bg-gradient-to-r from-foreground via-primary-light to-accent bg-clip-text text-transparent">
+              {t(siteData.role)}
+            </span>
           </motion.p>
 
           <motion.p
-            {...reveal(0.36)}
-            className="text-muted-foreground text-[15px] sm:text-base max-w-xl mx-auto lg:mx-0 mb-7 leading-[1.75]"
+            {...reveal(0.38, 22)}
+            className="text-muted-foreground text-[15px] sm:text-base max-w-2xl mx-auto lg:mx-0 mb-8 leading-[1.85]"
           >
             {t(siteData.headline)}
           </motion.p>
 
           <motion.div
-            {...reveal(0.44)}
+            {...reveal(0.48, 18)}
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 w-full sm:w-auto"
           >
             <button
               onClick={() => handleScroll("#projects")}
-              className="group min-h-11 px-6 py-3.5 bg-gradient-to-r from-primary to-accent hover:brightness-110 text-white rounded-xl font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(124,127,255,0.18)] hover:shadow-[0_0_32px_rgba(124,127,255,0.28)] active:scale-95 min-w-[12rem]"
+              className="group relative overflow-hidden min-h-11 px-6 py-3.5 bg-gradient-to-r from-primary to-accent hover:brightness-110 text-white rounded-xl font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(124,127,255,0.18)] hover:shadow-[0_0_52px_rgba(124,127,255,0.34)] active:scale-95 min-w-[12rem]"
             >
-              Ver projetos
-              <ArrowRight
-                size={15}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
+              <span className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] translate-x-[-140%] group-hover:translate-x-[140%] transition-transform duration-700" />
+              <span className="relative z-10 inline-flex items-center gap-2">
+                Ver projetos
+                <ArrowRight
+                  size={15}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
+              </span>
             </button>
 
-            <button
+            <motion.button
+              {...reveal(0.56, 14)}
               onClick={() => handleScroll("#contact")}
               className="min-h-11 px-6 py-3.5 rounded-xl font-medium text-sm text-muted hover:text-primary bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
             >
               <Mail size={14} />
               Falar comigo
-            </button>
+            </motion.button>
 
-            <a
+            <motion.a
+              {...reveal(0.64, 14)}
               href={siteData.resumeUrl}
               download="curriculo.pdf"
               className="min-h-11 px-6 py-3.5 rounded-xl font-medium text-sm text-muted hover:text-primary bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
             >
               <Download size={14} />
               Baixar curriculo
-            </a>
+            </motion.a>
           </motion.div>
 
           <motion.div
-            {...reveal(0.52)}
+            {...reveal(0.6, 14)}
             className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 text-xs sm:text-[13px] text-muted"
           >
             <span className="inline-flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.6)]" />
               Disponivel para vagas e freelance
             </span>
             <span className="inline-flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-primary/80" />
+              <span className="h-2 w-2 rounded-full bg-primary/80 shadow-[0_0_14px_rgba(138,123,255,0.55)]" />
               React, Next.js, .NET e Python
             </span>
           </motion.div>
-        </div>
+        </motion.div>
 
-        <motion.div {...reveal(0.24, 0, 0.92)} className="flex-shrink-0">
-          <div className="relative w-48 h-48 sm:w-60 sm:h-60 lg:w-72 lg:h-72">
-            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rounded-full blur-3xl opacity-40" />
-            <div className="relative w-full h-full rounded-full p-[2px] bg-gradient-to-br from-primary/40 via-border to-accent/30">
+        <motion.div
+          {...reveal(0.24, 0, 0.94)}
+          className="flex-shrink-0"
+          style={
+            reduceMotion
+              ? undefined
+              : { x: avatarTranslateX, y: avatarTranslateY }
+          }
+        >
+          <div className="relative w-48 h-48 sm:w-60 sm:h-60 lg:w-[21rem] lg:h-[21rem]">
+            <motion.div
+              animate={
+                reduceMotion
+                  ? undefined
+                  : {
+                      scale: [1, 1.08, 1],
+                      opacity: [0.4, 0.62, 0.4],
+                    }
+              }
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-12 bg-gradient-to-br from-primary/30 via-white/[0.03] to-accent/22 rounded-full blur-[56px] opacity-50"
+            />
+            <motion.div
+              animate={
+                reduceMotion
+                  ? undefined
+                  : {
+                      rotate: [0, 8, 0],
+                      scale: [1, 1.04, 1],
+                    }
+              }
+              transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-[-8%] rounded-full border border-white/[0.08] bg-[conic-gradient(from_180deg_at_50%_50%,rgba(138,123,255,0.18),transparent_30%,rgba(45,212,191,0.2),transparent_70%,rgba(138,123,255,0.18))] blur-md"
+            />
+            <div className="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18),transparent_58%)] opacity-70" />
+            <div className="relative w-full h-full rounded-full p-[2px] bg-gradient-to-br from-white/18 via-primary/40 to-accent/30 shadow-[0_20px_60px_rgba(0,0,0,0.32)]">
               <div className="relative w-full h-full rounded-full overflow-hidden bg-surface">
                 <Image
                   src={siteData.avatarUrl}
@@ -139,8 +310,9 @@ export default function Hero() {
                   fill
                   className="object-cover"
                   priority
-                  sizes="(max-width: 640px) 208px, (max-width: 1024px) 256px, 288px"
+                  sizes="(max-width: 640px) 208px, (max-width: 1024px) 256px, 336px"
                 />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),transparent_38%,transparent_68%,rgba(0,0,0,0.18))]" />
               </div>
             </div>
           </div>
@@ -150,7 +322,7 @@ export default function Hero() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0 }}
         animate={reduceMotion ? undefined : { opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.8 }}
+        transition={{ delay: 1.25, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
       >
         <motion.div
