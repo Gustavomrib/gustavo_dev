@@ -2,7 +2,6 @@
 
 import {
   motion,
-  useMotionTemplate,
   useMotionValue,
   useReducedMotion,
   useSpring,
@@ -16,18 +15,17 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
+  const enableInteractiveMotion = !reduceMotion;
 
   const mouseX = useMotionValue(50);
   const mouseY = useMotionValue(32);
-  const smoothX = useSpring(mouseX, { stiffness: 120, damping: 24, mass: 0.4 });
-  const smoothY = useSpring(mouseY, { stiffness: 120, damping: 24, mass: 0.4 });
+  const smoothX = useSpring(mouseX, { stiffness: 90, damping: 26, mass: 0.6 });
+  const smoothY = useSpring(mouseY, { stiffness: 90, damping: 26, mass: 0.6 });
 
-  const avatarTranslateY = useTransform(smoothY, [0, 100], [-10, 10]);
-  const avatarTranslateX = useTransform(smoothX, [0, 100], [-8, 8]);
-  const textTranslateY = useTransform(smoothY, [0, 100], [-4, 4]);
-  const textTranslateX = useTransform(smoothX, [0, 100], [-3, 3]);
-
-  const cursorGlow = useMotionTemplate`radial-gradient(circle at ${smoothX}% ${smoothY}%, rgba(176,155,255,0.18), transparent 18%)`;
+  const avatarTranslateY = useTransform(smoothY, [0, 100], [-6, 6]);
+  const avatarTranslateX = useTransform(smoothX, [0, 100], [-5, 5]);
+  const pointerGlowX = useTransform(smoothX, [0, 100], [-10, 10]);
+  const pointerGlowY = useTransform(smoothY, [0, 100], [-10, 10]);
 
   const handleScroll = (href: string) => {
     const el = document.querySelector(href);
@@ -39,7 +37,7 @@ export default function Hero() {
     clientX,
     clientY,
   }: React.MouseEvent<HTMLElement>) => {
-    if (reduceMotion) return;
+    if (!enableInteractiveMotion) return;
 
     const rect = currentTarget.getBoundingClientRect();
     const x = ((clientX - rect.left) / rect.width) * 100;
@@ -50,7 +48,7 @@ export default function Hero() {
   };
 
   const handlePointerLeave = () => {
-    if (reduceMotion) return;
+    if (!enableInteractiveMotion) return;
     mouseX.set(50);
     mouseY.set(32);
   };
@@ -74,7 +72,7 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <motion.div
           style={
-            reduceMotion
+            !enableInteractiveMotion
               ? undefined
               : {
                   x: useTransform(smoothX, [0, 100], [-16, 16]),
@@ -82,70 +80,47 @@ export default function Hero() {
                 }
           }
           animate={
-            reduceMotion
-              ? undefined
-              : {
-                  x: [0, 24, 0],
-                  y: [0, -18, 0],
-                  scale: [1, 1.05, 1],
-                }
-          }
-          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[980px] h-[640px] bg-primary/[0.09] rounded-full blur-[135px]"
-        />
-        <motion.div
-          style={
-            reduceMotion
-              ? undefined
-              : {
-                  x: useTransform(smoothX, [0, 100], [16, -18]),
-                  y: useTransform(smoothY, [0, 100], [12, -12]),
-                }
-          }
-          animate={
-            reduceMotion
-              ? undefined
-              : {
-                  x: [0, -24, 0],
-                  y: [0, 14, 0],
-                  scale: [1, 1.08, 1],
-                }
-          }
-          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[-4%] right-[-2%] w-[560px] h-[560px] bg-accent/[0.08] rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={
-            reduceMotion
+            !enableInteractiveMotion
               ? undefined
               : {
                   x: [0, 18, 0],
-                  opacity: [0.16, 0.3, 0.16],
+                  y: [0, -12, 0],
+                  scale: [1, 1.03, 1],
                 }
           }
-          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-          className="absolute left-[10%] top-[24%] hidden md:block w-64 h-64 rounded-full bg-primary/10 blur-[104px]"
+          transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[920px] h-[600px] bg-primary/[0.08] rounded-full blur-[96px]"
         />
         <motion.div
-          animate={
-            reduceMotion
+          style={
+            !enableInteractiveMotion
               ? undefined
               : {
-                  x: [0, -14, 0],
-                  y: [0, 12, 0],
-                  opacity: [0.1, 0.18, 0.1],
+                  x: useTransform(smoothX, [0, 100], [10, -12]),
+                  y: useTransform(smoothY, [0, 100], [8, -8]),
                 }
           }
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute right-[16%] top-[16%] hidden lg:block w-40 h-40 rounded-full bg-white/8 blur-[88px]"
+          animate={
+            !enableInteractiveMotion
+              ? undefined
+              : {
+                  x: [0, -16, 0],
+                  y: [0, 10, 0],
+                  scale: [1, 1.04, 1],
+                }
+          }
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-[-2%] right-[0%] hidden md:block w-[480px] h-[480px] bg-accent/[0.06] rounded-full blur-[88px]"
         />
       </div>
 
-      <motion.div
-        className="absolute inset-0 pointer-events-none opacity-80"
-        aria-hidden="true"
-        style={reduceMotion ? undefined : { background: cursorGlow }}
-      />
+      {enableInteractiveMotion && (
+        <motion.div
+          className="absolute left-1/2 top-[22%] hidden lg:block h-56 w-56 -translate-x-1/2 rounded-full bg-primary/10 blur-[72px] pointer-events-none"
+          aria-hidden="true"
+          style={{ x: pointerGlowX, y: pointerGlowY }}
+        />
+      )}
 
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -167,14 +142,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28 flex flex-col-reverse lg:flex-row items-center gap-10 sm:gap-14 lg:gap-20">
-        <motion.div
-          className="flex-1 text-center lg:text-left w-full"
-          style={
-            reduceMotion
-              ? undefined
-              : { x: textTranslateX, y: textTranslateY }
-          }
-        >
+        <div className="flex-1 text-center lg:text-left w-full">
           <motion.div
             {...reveal(0.08, 16)}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-primary/[0.14] to-accent/[0.10] border border-primary/[0.18] mb-7 shadow-[0_14px_40px_rgba(0,0,0,0.18)]"
@@ -214,13 +182,11 @@ export default function Hero() {
             {t(siteData.headline)}
           </motion.p>
 
-          <motion.div
-            {...reveal(0.48, 18)}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 w-full sm:w-auto"
-          >
-            <button
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 w-full sm:w-auto">
+            <motion.button
+              {...reveal(0.48, 18)}
               onClick={() => handleScroll("#projects")}
-              className="group relative overflow-hidden min-h-11 px-6 py-3.5 bg-gradient-to-r from-primary to-accent hover:brightness-110 text-white rounded-xl font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(124,127,255,0.18)] hover:shadow-[0_0_52px_rgba(124,127,255,0.34)] active:scale-95 min-w-[12rem]"
+              className="group relative overflow-hidden min-h-11 px-6 py-3.5 bg-gradient-to-r from-primary to-accent hover:brightness-110 text-white rounded-xl font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(124,127,255,0.16)] hover:shadow-[0_0_30px_rgba(124,127,255,0.24)] active:scale-95 min-w-[12rem]"
             >
               <span className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] translate-x-[-140%] group-hover:translate-x-[140%] transition-transform duration-700" />
               <span className="relative z-10 inline-flex items-center gap-2">
@@ -230,7 +196,7 @@ export default function Hero() {
                   className="transition-transform group-hover:translate-x-0.5"
                 />
               </span>
-            </button>
+            </motion.button>
 
             <motion.button
               {...reveal(0.56, 14)}
@@ -250,7 +216,7 @@ export default function Hero() {
               <Download size={14} />
               Baixar curriculo
             </motion.a>
-          </motion.div>
+          </div>
 
           <motion.div
             {...reveal(0.6, 14)}
@@ -265,13 +231,13 @@ export default function Hero() {
               React, Next.js, .NET e Python
             </span>
           </motion.div>
-        </motion.div>
+        </div>
 
         <motion.div
           {...reveal(0.24, 0, 0.94)}
           className="flex-shrink-0"
           style={
-            reduceMotion
+            !enableInteractiveMotion
               ? undefined
               : { x: avatarTranslateX, y: avatarTranslateY }
           }
@@ -279,30 +245,18 @@ export default function Hero() {
           <div className="relative w-48 h-48 sm:w-60 sm:h-60 lg:w-[21rem] lg:h-[21rem]">
             <motion.div
               animate={
-                reduceMotion
+                !enableInteractiveMotion
                   ? undefined
                   : {
-                      scale: [1, 1.08, 1],
-                      opacity: [0.4, 0.62, 0.4],
-                    }
-              }
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -inset-12 bg-gradient-to-br from-primary/30 via-white/[0.03] to-accent/22 rounded-full blur-[56px] opacity-50"
-            />
-            <motion.div
-              animate={
-                reduceMotion
-                  ? undefined
-                  : {
-                      rotate: [0, 8, 0],
                       scale: [1, 1.04, 1],
+                      opacity: [0.34, 0.48, 0.34],
                     }
               }
-              transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-[-8%] rounded-full border border-white/[0.08] bg-[conic-gradient(from_180deg_at_50%_50%,rgba(138,123,255,0.18),transparent_30%,rgba(45,212,191,0.2),transparent_70%,rgba(138,123,255,0.18))] blur-md"
+              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-10 bg-gradient-to-br from-primary/24 via-white/[0.02] to-accent/18 rounded-full blur-[42px] opacity-40"
             />
             <div className="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18),transparent_58%)] opacity-70" />
-            <div className="relative w-full h-full rounded-full p-[2px] bg-gradient-to-br from-white/18 via-primary/40 to-accent/30 shadow-[0_20px_60px_rgba(0,0,0,0.32)]">
+            <div className="relative w-full h-full rounded-full p-[2px] bg-gradient-to-br from-white/18 via-primary/40 to-accent/30 shadow-[0_14px_34px_rgba(0,0,0,0.24)]">
               <div className="relative w-full h-full rounded-full overflow-hidden bg-surface">
                 <Image
                   src={siteData.avatarUrl}
@@ -312,7 +266,7 @@ export default function Hero() {
                   priority
                   sizes="(max-width: 640px) 208px, (max-width: 1024px) 256px, 336px"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),transparent_38%,transparent_68%,rgba(0,0,0,0.18))]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),transparent_38%,transparent_68%,rgba(0,0,0,0.14))]" />
               </div>
             </div>
           </div>

@@ -12,19 +12,34 @@ export default function Navbar() {
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    let ticking = false;
 
-      // Active section detection
-      const sections = siteData.navigation.map((n) => n.href.slice(1));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.getBoundingClientRect().top <= 120) {
-          setActiveSection(`#${sections[i]}`);
-          break;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const nextScrolled = window.scrollY > 20;
+        setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+
+        const sections = siteData.navigation.map((n) => n.href.slice(1));
+        let nextActiveSection = "#hero";
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const el = document.getElementById(sections[i]);
+          if (el && el.getBoundingClientRect().top <= 120) {
+            nextActiveSection = `#${sections[i]}`;
+            break;
+          }
         }
-      }
+
+        setActiveSection((prev) =>
+          prev === nextActiveSection ? prev : nextActiveSection
+        );
+        ticking = false;
+      });
     };
+
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);

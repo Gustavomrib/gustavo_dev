@@ -60,8 +60,7 @@ body::before {
     radial-gradient(circle at 80% 18%, rgba(45, 212, 191, 0.1), transparent 0 26%),
     radial-gradient(circle at 60% 72%, rgba(138, 123, 255, 0.08), transparent 0 24%);
   background-size: 140% 140%;
-  animation: ambient-drift 20s linear infinite;
-  opacity: 0.9;
+  opacity: 0.72;
 }
 
 body::after {
@@ -72,8 +71,7 @@ body::after {
   background-size: 140px 140px, 34px 34px, 100% 100%;
   background-position: center, 0 0, center;
   background-repeat: repeat, repeat, no-repeat;
-  opacity: 0.14;
-  animation: pattern-drift 20s linear infinite;
+  opacity: 0.08;
 }
 
 /* ── Scrollbar (Webkit) ── */
@@ -142,6 +140,23 @@ html {
   }
   100% {
     background-position: center, 0 0, center;
+  }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  body::before {
+    animation: ambient-drift 26s linear infinite;
+  }
+}
+
+@media (max-width: 768px) {
+  body::before {
+    opacity: 0.42;
+  }
+
+  body::after {
+    opacity: 0.05;
+    background-size: 160px 160px, 40px 40px, 100% 100%;
   }
 }
 
