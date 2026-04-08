@@ -5,7 +5,7 @@ import { siteData } from "@/data/site";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { motion } from "framer-motion";
-import { Send, Mail, ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -48,8 +48,7 @@ export default function Contact() {
     "w-full px-4 py-3.5 bg-white/[0.02] border border-white/[0.06] rounded-xl text-foreground placeholder:text-muted-foreground/40 transition-all duration-300 focus:outline-none focus:border-primary/40 focus:bg-white/[0.04] focus:ring-1 focus:ring-primary/20 text-sm";
 
   return (
-    <section id="contact" className="py-28 sm:py-32 px-6 relative">
-      {/* Background glow */}
+    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 relative">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/[0.04] rounded-full blur-[120px]" />
       </div>
@@ -57,11 +56,10 @@ export default function Contact() {
       <div className="relative max-w-4xl mx-auto">
         <SectionHeading
           title="Contato"
-          subtitle="Tem um projeto em mente ou quer conversar sobre oportunidades? Ficarei feliz em ouvir de você."
+          subtitle="Tem um projeto em mente, uma vaga aberta ou quer conversar sobre colaboracao? Ficarei feliz em responder."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-14">
-          {/* Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
           <SectionWrapper delay={0.1} className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -129,12 +127,12 @@ export default function Contact() {
                 disabled={status === "sending"}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
-                className={`w-full px-6 py-3.5 rounded-xl font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 disabled:cursor-not-allowed ${
+                className={`w-full min-h-11 px-6 py-3.5 rounded-xl font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 disabled:cursor-not-allowed ${
                   status === "sent"
                     ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
                     : status === "error"
                     ? "bg-red-500/10 text-red-400 border border-red-500/20"
-                    : "bg-primary hover:bg-primary-light text-white shadow-[0_0_24px_rgba(124,127,255,0.18)] hover:shadow-[0_0_32px_rgba(124,127,255,0.28)]"
+                    : "bg-gradient-to-r from-primary to-accent hover:brightness-110 text-white shadow-[0_0_24px_rgba(124,127,255,0.18)] hover:shadow-[0_0_32px_rgba(124,127,255,0.28)] active:scale-95"
                 }`}
               >
                 {status === "sending" ? (
@@ -154,7 +152,7 @@ export default function Contact() {
                   </>
                 ) : (
                   <>
-                    Enviar Mensagem
+                    Enviar mensagem
                     <ArrowRight size={15} />
                   </>
                 )}
@@ -162,19 +160,31 @@ export default function Contact() {
             </form>
           </SectionWrapper>
 
-          {/* Contact Info */}
           <SectionWrapper delay={0.2} className="lg:col-span-2">
             <div className="space-y-8">
+              <div className="rounded-2xl border border-primary/15 bg-primary/[0.05] p-5">
+                <p className="text-[11px] uppercase tracking-[0.18em] text-primary/80 mb-2">
+                  Melhor caminho
+                </p>
+                <h3 className="text-lg font-semibold tracking-tight mb-2">
+                  Vamos acelerar essa conversa
+                </h3>
+                <p className="text-sm text-muted leading-relaxed">
+                  Para oportunidades, freelas e parcerias, voce pode falar comigo
+                  por e-mail ou WhatsApp e eu retorno o quanto antes.
+                </p>
+              </div>
+
               <div>
                 <h3 className="text-lg font-semibold tracking-tight mb-3">
                   Vamos trabalhar juntos
                 </h3>
                 <p className="text-muted text-sm leading-relaxed">
-                  Disponível para projetos freelance, oportunidades de trabalho e colaborações.
+                  Disponivel para projetos freelance, oportunidades de trabalho e
+                  colaboracoes.
                 </p>
               </div>
 
-              {/* Email */}
               <a
                 href={`mailto:${socials.email}`}
                 className="group flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-primary/20 transition-all duration-300"
@@ -192,7 +202,6 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* Social Links */}
               <div>
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground mb-3">
                   Redes sociais
@@ -214,6 +223,16 @@ export default function Contact() {
                   ))}
                 </div>
               </div>
+
+              <a
+                href={socials.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full min-h-11 items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3.5 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary/30 hover:text-primary active:scale-95"
+              >
+                Conversar no WhatsApp
+                <ArrowRight size={15} />
+              </a>
             </div>
           </SectionWrapper>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { siteData, t } from "@/data/site";
 
@@ -9,6 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,9 +25,17 @@ export default function Navbar() {
         }
       }
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   const handleClick = (href: string) => {
     setIsOpen(false);
@@ -36,8 +45,8 @@ export default function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={reduceMotion ? false : { y: -100 }}
+      animate={reduceMotion ? undefined : { y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
@@ -45,7 +54,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-5xl mx-auto px-6 h-[64px] flex items-center justify-between">
+      <nav className="max-w-5xl mx-auto px-4 sm:px-6 h-[64px] flex items-center justify-between">
         <motion.a
           href="#hero"
           onClick={(e) => {
@@ -124,10 +133,10 @@ export default function Navbar() {
                       e.preventDefault();
                       handleClick(item.href);
                     }}
-                    className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    className={`block min-h-11 px-4 py-3.5 rounded-xl text-sm font-medium transition-all duration-300 ${
                       activeSection === item.href
                         ? "text-primary bg-primary/[0.08] ring-1 ring-primary/[0.12]"
-                        : "text-muted hover:text-foreground hover:bg-white/[0.04] active:bg-white/[0.06]"
+                        : "text-muted hover:text-primary hover:bg-white/[0.04] active:bg-white/[0.06]"
                     }`}
                   >
                     {t(item.label)}

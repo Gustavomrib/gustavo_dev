@@ -2,6 +2,14 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
+
 const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -21,9 +29,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Gustavo Ribeiro | Desenvolvedor Full Stack — .NET & React",
+  metadataBase: new URL(siteUrl),
+  title: "Gustavo Ribeiro | Desenvolvedor Full Stack - .NET & React",
   description:
-    "Portfólio de Gustavo Ribeiro — Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python. Autenticação, IA aplicada e colaboração Full Stack.",
+    "Portfolio de Gustavo Ribeiro - Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python. Autenticacao, IA aplicada e colaboracao Full Stack.",
   keywords: [
     "desenvolvedor",
     "full stack",
@@ -33,23 +42,23 @@ export const metadata: Metadata = {
     "c#",
     "typescript",
     "python",
-    "portfólio",
+    "portfolio",
     "firebase",
-    "inteligência artificial",
+    "inteligencia artificial",
   ],
   authors: [{ name: "Gustavo Marques Lopes Ribeiro" }],
   creator: "Gustavo Ribeiro",
   openGraph: {
-    title: "Gustavo Ribeiro | Desenvolvedor Full Stack — .NET & React",
+    title: "Gustavo Ribeiro | Desenvolvedor Full Stack - .NET & React",
     description:
-      "Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python. Autenticação, IA e colaboração.",
+      "Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python. Autenticacao, IA e colaboracao.",
     type: "website",
     locale: "pt_BR",
-    siteName: "Gustavo Ribeiro — Portfólio",
+    siteName: "Gustavo Ribeiro - Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gustavo Ribeiro | Desenvolvedor Full Stack — .NET & React",
+    title: "Gustavo Ribeiro | Desenvolvedor Full Stack - .NET & React",
     description:
       "Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python.",
   },

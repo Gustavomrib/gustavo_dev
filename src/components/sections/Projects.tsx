@@ -4,26 +4,25 @@ import { useState } from "react";
 import { siteData, t } from "@/data/site";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Folder, ArrowUpRight, Users } from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Folder, ArrowUpRight, Users, Sparkles } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 
 export default function Projects() {
   const { projects, projectCategories } = siteData;
   const [activeFilter, setActiveFilter] = useState("all");
+  const reduceMotion = useReducedMotion();
 
   const filtered =
     activeFilter === "all"
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
-  // Separate featured vs regular
   const featured = filtered.filter((p) => p.featured);
   const regular = filtered.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-28 sm:py-32 px-6 relative">
-      {/* Subtle background */}
+    <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6 relative">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px]" />
       </div>
@@ -31,20 +30,45 @@ export default function Projects() {
       <div className="relative max-w-5xl mx-auto">
         <SectionHeading
           title="Projetos"
-          subtitle="Projetos reais que construí — de autenticação e IA até colaborações Full Stack."
+          subtitle="Projetos reais com foco em produto, autenticacao, IA aplicada e experiencias Full Stack prontas para demonstrar."
         />
 
-        {/* Filters */}
+        <SectionWrapper delay={0.06}>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 sm:mb-12">
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-4">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-2">
+                Portfolio
+              </p>
+              <p className="text-2xl font-semibold tracking-tight">{projects.length}</p>
+              <p className="text-sm text-muted mt-1">projetos publicados e estudados a fundo</p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-4">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-2">
+                Destaques
+              </p>
+              <p className="text-2xl font-semibold tracking-tight">{featured.length}</p>
+              <p className="text-sm text-muted mt-1">cases com narrativa mais forte para recrutadores</p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-4">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-2">
+                Stack
+              </p>
+              <p className="text-2xl font-semibold tracking-tight">Full Stack</p>
+              <p className="text-sm text-muted mt-1">React, Next.js, .NET, Firebase e Python</p>
+            </div>
+          </div>
+        </SectionWrapper>
+
         <SectionWrapper delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-2 mb-14">
+          <div className="flex flex-wrap sm:flex-wrap justify-start sm:justify-center gap-2 mb-10 sm:mb-14 overflow-x-auto sm:overflow-visible pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {projectCategories.map((cat) => (
               <button
                 key={cat.value}
                 onClick={() => setActiveFilter(cat.value)}
-                className={`relative px-4 py-2 rounded-lg text-[13px] font-medium transition-all duration-300 ${
+                className={`relative shrink-0 min-h-11 px-4 py-2 rounded-lg text-[13px] font-medium transition-all duration-300 active:scale-95 ${
                   activeFilter === cat.value
                     ? "text-primary"
-                    : "text-muted hover:text-foreground"
+                    : "text-muted hover:text-primary"
                 }`}
               >
                 {t(cat.label)}
@@ -60,7 +84,6 @@ export default function Projects() {
           </div>
         </SectionWrapper>
 
-        {/* Featured Projects — larger cards */}
         {featured.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
             <AnimatePresence mode="popLayout">
@@ -68,8 +91,8 @@ export default function Projects() {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+                  animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{
                     duration: 0.45,
@@ -84,7 +107,6 @@ export default function Projects() {
           </div>
         )}
 
-        {/* Regular Projects — smaller grid */}
         {regular.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <AnimatePresence mode="popLayout">
@@ -92,8 +114,8 @@ export default function Projects() {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                  animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{
                     duration: 0.4,
@@ -108,7 +130,6 @@ export default function Projects() {
           </div>
         )}
 
-        {/* Empty state */}
         {filtered.length === 0 && (
           <div className="text-center py-16">
             <Folder size={40} className="text-white/[0.06] mx-auto mb-4" />
@@ -120,7 +141,6 @@ export default function Projects() {
   );
 }
 
-/* ── Project Card ── */
 interface ProjectCardProps {
   project: (typeof siteData.projects)[number];
   featured?: boolean;
@@ -130,6 +150,7 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
   const title =
     typeof project.title === "string" ? project.title : t(project.title);
   const isCollaborative = "collaborative" in project && project.collaborative;
+  const hasDemo = Boolean(project.demo);
 
   return (
     <div
@@ -137,8 +158,29 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
         featured ? "ring-1 ring-primary/[0.06]" : ""
       }`}
     >
-      {/* Header area */}
-      <div className={`relative bg-gradient-to-br from-surface via-surface to-primary/[0.03] ${featured ? "p-6 sm:p-7" : "p-5 sm:p-6"}`}>
+      <div
+        className={`relative bg-gradient-to-br from-surface via-surface to-primary/[0.03] ${
+          featured ? "p-6 sm:p-7" : "p-5 sm:p-6"
+        }`}
+      >
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <span className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            {project.category === "frontend"
+              ? "Front-end"
+              : project.category === "ai"
+              ? "IA / Python"
+              : "Full Stack"}
+          </span>
+          {hasDemo ? (
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-emerald-300">
+              <Sparkles size={11} />
+              Demo online
+            </span>
+          ) : (
+            <span className="text-[11px] text-muted-foreground">Repositorio disponivel</span>
+          )}
+        </div>
+
         <div className="flex items-start justify-between gap-3 mb-4">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-primary/[0.08] border border-primary/[0.12] flex items-center justify-center">
@@ -176,9 +218,7 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
         </p>
       </div>
 
-      {/* Footer */}
       <div className="mt-auto px-5 sm:px-6 pb-5 sm:pb-6 pt-0 flex flex-col gap-4">
-        {/* Tags */}
         <div className="flex flex-wrap gap-1.5">
           {project.tags.map((tag) => (
             <span
@@ -190,18 +230,17 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
           ))}
         </div>
 
-        {/* Links */}
-        <div className="flex items-center gap-4 pt-3.5 border-t border-white/[0.06]">
+        <div className="flex flex-wrap items-center gap-3 pt-3.5 border-t border-white/[0.06]">
           {project.github && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[13px] text-muted hover:text-foreground transition-colors duration-300"
-              aria-label={`Código do projeto ${title} no GitHub`}
+              className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-white/[0.08] px-3 py-2 text-[13px] text-muted hover:text-primary hover:border-primary/30 transition-colors duration-300 active:scale-95"
+              aria-label={`Codigo do projeto ${title} no GitHub`}
             >
               <GithubIcon size={14} />
-              Código
+              Codigo
             </a>
           )}
           {project.demo && (
@@ -209,10 +248,10 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[13px] text-primary hover:text-primary-light transition-colors duration-300 ml-auto"
+              className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-primary to-accent px-3 py-2 text-[13px] text-white hover:brightness-110 transition-colors duration-300 ml-auto active:scale-95"
               aria-label={`Demo do projeto ${title}`}
             >
-              Demo
+              Ver demo
               <ArrowUpRight size={13} />
             </a>
           )}
