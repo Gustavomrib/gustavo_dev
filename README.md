@@ -92,7 +92,7 @@ O projeto está pronto para deploy no [Vercel](https://vercel.com):
 
 - **GitHub:** [Gustavomrib](https://github.com/Gustavomrib)
 - **LinkedIn:** [gustavomrib](https://www.linkedin.com/in/gustavomrib/)
-- **Email:** gustavomrib13@gmail.com
+- **Email:** gustavomarques.dev@gmail.com
 
 ## Licença
 
