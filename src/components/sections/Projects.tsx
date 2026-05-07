@@ -154,12 +154,12 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
 
   return (
     <div
-      className={`group rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-primary/20 overflow-hidden transition-all duration-500 h-full flex flex-col hover:shadow-[0_0_40px_rgba(124,127,255,0.06)] ${
-        featured ? "ring-1 ring-primary/[0.06]" : ""
+      className={`group rounded-2xl bg-white/[0.015] border border-white/[0.04] hover:border-primary/15 overflow-hidden transition-all duration-500 h-full flex flex-col hover:shadow-[0_0_30px_rgba(124,127,255,0.04)] ${
+        featured ? "ring-1 ring-primary/[0.04]" : ""
       }`}
     >
       <div
-        className={`relative bg-gradient-to-br from-surface via-surface to-primary/[0.03] ${
+        className={`relative bg-gradient-to-br from-surface via-surface to-primary/[0.02] ${
           featured ? "p-6 sm:p-7" : "p-5 sm:p-6"
         }`}
       >
@@ -196,12 +196,12 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
           </div>
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {featured && (
-              <span className="px-2 py-0.5 bg-primary/[0.1] border border-primary/[0.15] text-primary text-[10px] font-semibold uppercase tracking-wider rounded-md">
+              <span className="px-2 py-0.5 bg-primary/[0.08] border border-primary/[0.12] text-primary text-[10px] font-semibold uppercase tracking-wider rounded-md">
                 Destaque
               </span>
             )}
             {isCollaborative && (
-              <span className="px-2 py-0.5 bg-accent/[0.1] border border-accent/[0.15] text-accent text-[10px] font-semibold uppercase tracking-wider rounded-md flex items-center gap-1">
+              <span className="px-2 py-0.5 bg-accent/[0.08] border border-accent/[0.12] text-accent text-[10px] font-semibold uppercase tracking-wider rounded-md flex items-center gap-1">
                 <Users size={10} />
                 Collab
               </span>
@@ -223,7 +223,7 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-2.5 py-0.5 bg-white/[0.04] text-muted-foreground text-[11px] font-medium rounded-md border border-white/[0.06]"
+              className="px-2.5 py-0.5 bg-white/[0.03] text-muted-foreground text-[11px] font-medium rounded-md border border-white/[0.04]"
             >
               {tag}
             </span>
@@ -236,7 +236,7 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-white/[0.08] px-3 py-2 text-[13px] text-muted hover:text-primary hover:border-primary/30 transition-colors duration-300 active:scale-95"
+              className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-white/[0.06] px-3 py-2 text-[13px] text-muted hover:text-primary hover:border-primary/25 transition-colors duration-300 active:scale-95"
               aria-label={`Codigo do projeto ${title} no GitHub`}
             >
               <GithubIcon size={14} />
@@ -248,7 +248,7 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-primary to-accent px-3 py-2 text-[13px] text-white hover:brightness-110 transition-colors duration-300 ml-auto active:scale-95"
+              className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-primary to-accent px-3 py-2 text-[13px] text-white hover:brightness-105 transition-all duration-300 ml-auto active:scale-95"
               aria-label={`Demo do projeto ${title}`}
             >
               Ver demo

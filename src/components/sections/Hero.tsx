@@ -89,7 +89,7 @@ export default function Hero() {
                 }
           }
           transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[920px] h-[600px] bg-primary/[0.08] rounded-full blur-[96px]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[520px] bg-primary/[0.05] rounded-full blur-[80px]"
         />
         <motion.div
           style={
@@ -110,13 +110,13 @@ export default function Hero() {
                 }
           }
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[-2%] right-[0%] hidden md:block w-[480px] h-[480px] bg-accent/[0.06] rounded-full blur-[88px]"
+          className="absolute bottom-[-2%] right-[0%] hidden md:block w-[420px] h-[420px] bg-accent/[0.04] rounded-full blur-[72px]"
         />
       </div>
 
       {enableInteractiveMotion && (
         <motion.div
-          className="absolute left-1/2 top-[22%] hidden lg:block h-56 w-56 -translate-x-1/2 rounded-full bg-primary/10 blur-[72px] pointer-events-none"
+          className="absolute left-1/2 top-[22%] hidden lg:block h-48 w-48 -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[56px] pointer-events-none"
           aria-hidden="true"
           style={{ x: pointerGlowX, y: pointerGlowY }}
         />
@@ -214,7 +214,7 @@ export default function Hero() {
               className="min-h-11 px-6 py-3.5 rounded-xl font-medium text-sm text-muted hover:text-primary bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
             >
               <Download size={14} />
-              Baixar curriculo
+              Baixar currículo atualizado
             </motion.a>
           </div>
 

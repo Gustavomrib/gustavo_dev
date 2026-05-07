@@ -24,6 +24,11 @@ import {
   FileSpreadsheet,
   Brain,
   Layers3,
+  Terminal,
+  Users,
+  MessageSquare,
+  Lightbulb,
+  Zap,
 } from "lucide-react";
 import { useRef } from "react";
 
@@ -44,14 +49,19 @@ const skillIconMap: Record<string, React.ReactNode> = {
   Vite: <Triangle size={15} />,
   "C#": <Code2 size={15} />,
   ".NET": <Cpu size={15} />,
+  "Node.js": <Terminal size={15} />,
   "APIs REST": <Server size={15} />,
   "SQL Server": <Database size={15} />,
   PostgreSQL: <Table2 size={15} />,
   "Git & GitHub": <GitBranch size={15} />,
-  "Excel (Automação)": <FileSpreadsheet size={15} />,
+  "Excel (Intermediário)": <FileSpreadsheet size={15} />,
   Python: <Binary size={15} />,
   "Inteligência Artificial": <Brain size={15} />,
   "Arquitetura de Software": <Layers3 size={15} />,
+  Liderança: <Users size={15} />,
+  "Comunicação assertiva": <MessageSquare size={15} />,
+  "Resolução de problemas": <Lightbulb size={15} />,
+  Proatividade: <Zap size={15} />,
 };
 
 export default function Skills() {
@@ -93,10 +103,10 @@ function SkillCategoryCard({
       ref={ref}
       whileHover={{ y: -2 }}
       transition={{ duration: 0.3 }}
-      className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-primary/30 transition-all duration-300 h-full shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
+      className="p-6 sm:p-7 rounded-2xl bg-white/[0.015] border border-white/[0.04] hover:border-primary/20 transition-all duration-300 h-full shadow-[0_12px_40px_rgba(0,0,0,0.14)]"
     >
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary/18 to-accent/14 text-primary shadow-[0_0_0_1px_rgba(138,130,255,0.12)]">
+        <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary/14 to-accent/10 text-primary shadow-[0_0_0_1px_rgba(138,130,255,0.10)]">
           {categoryIconMap[category.icon]}
         </div>
         <div>
@@ -112,7 +122,7 @@ function SkillCategoryCard({
           <div key={skill.name}>
             <div className="flex items-center justify-between gap-3 mb-2">
               <div className="flex items-center gap-2.5 min-w-0">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-primary/15 bg-gradient-to-br from-primary/12 to-accent/10 text-primary">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-primary/12 bg-gradient-to-br from-primary/10 to-accent/8 text-primary">
                   {skillIconMap[skill.name] ?? <Code2 size={15} />}
                 </span>
                 <span className="text-sm font-medium text-foreground/85 truncate">

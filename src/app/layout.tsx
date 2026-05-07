@@ -30,12 +30,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Gustavo Ribeiro | Desenvolvedor Full Stack - .NET & React",
+  title: "Gustavo Marques Lopes Ribeiro | Desenvolvedor em formação",
   description:
-    "Portfolio de Gustavo Ribeiro - Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python. Autenticacao, IA aplicada e colaboracao Full Stack.",
+    "Portfólio de Gustavo Marques Lopes Ribeiro — estudante de Engenharia de Software buscando primeira oportunidade como Desenvolvedor Júnior ou Estagiário. Projetos em React, Next.js, .NET, C# e Python.",
   keywords: [
     "desenvolvedor",
     "full stack",
+    "estágio",
+    "júnior",
     "react",
     "next.js",
     ".net",
@@ -43,24 +45,23 @@ export const metadata: Metadata = {
     "typescript",
     "python",
     "portfolio",
-    "firebase",
-    "inteligencia artificial",
+    "engenharia de software",
   ],
   authors: [{ name: "Gustavo Marques Lopes Ribeiro" }],
-  creator: "Gustavo Ribeiro",
+  creator: "Gustavo Marques Lopes Ribeiro",
   openGraph: {
-    title: "Gustavo Ribeiro | Desenvolvedor Full Stack - .NET & React",
+    title: "Gustavo Marques Lopes Ribeiro | Desenvolvedor em formação",
     description:
-      "Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python. Autenticacao, IA e colaboracao.",
+      "Estudante de Engenharia de Software buscando primeira oportunidade como Desenvolvedor Júnior ou Estagiário. Projetos em React, Next.js, .NET, C# e Python.",
     type: "website",
     locale: "pt_BR",
-    siteName: "Gustavo Ribeiro - Portfolio",
+    siteName: "Gustavo Marques Lopes Ribeiro - Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gustavo Ribeiro | Desenvolvedor Full Stack - .NET & React",
+    title: "Gustavo Marques Lopes Ribeiro | Desenvolvedor em formação",
     description:
-      "Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python.",
+      "Estudante de Engenharia de Software buscando primeira oportunidade como Desenvolvedor Júnior ou Estagiário.",
   },
   robots: {
     index: true,

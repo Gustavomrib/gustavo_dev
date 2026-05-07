@@ -29,7 +29,7 @@ export default function Journey() {
                     isDesktopLeft ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
-                  <div className="absolute left-0 sm:left-1 md:left-1/2 md:-translate-x-1/2 top-5 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-primary/20 bg-gradient-to-br from-primary/18 to-accent/10 shadow-[0_10px_30px_rgba(0,0,0,0.24)]">
+                  <div className="absolute left-0 sm:left-1 md:left-1/2 md:-translate-x-1/2 top-5 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-primary/16 bg-gradient-to-br from-primary/14 to-accent/8 shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
                     {item.type === "work" ? (
                       <Briefcase size={14} className="text-primary" />
                     ) : (
@@ -42,8 +42,8 @@ export default function Journey() {
                       isDesktopLeft ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
                     }`}
                   >
-                    <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-4 sm:px-5 sm:py-5 transition-all duration-300 hover:border-primary/30">
-                      <span className="inline-flex min-h-8 items-center rounded-lg border border-primary/16 bg-gradient-to-r from-primary/10 to-accent/10 px-2.5 py-1 text-[11px] font-mono font-medium text-primary mb-3">
+                    <div className="rounded-2xl border border-white/[0.04] bg-white/[0.015] px-4 py-4 sm:px-5 sm:py-5 transition-all duration-300 hover:border-primary/20">
+                      <span className="inline-flex min-h-8 items-center rounded-lg border border-primary/12 bg-gradient-to-r from-primary/8 to-accent/6 px-2.5 py-1 text-[11px] font-mono font-medium text-primary mb-3">
                         {item.year}
                       </span>
                       <h3 className="text-base sm:text-lg font-semibold tracking-tight mb-1.5">

@@ -7,34 +7,36 @@ export type Locale = "pt" | "en";
 
 export const siteData = {
   // --- Informações Pessoais ---
-  name: "Gustavo Ribeiro",
+  name: "Gustavo Marques Lopes Ribeiro",
   firstName: "Gustavo",
   fullName: "Gustavo Marques Lopes Ribeiro",
   role: {
-    pt: "Desenvolvedor Full Stack | .NET & React",
-    en: "Full Stack Developer | .NET & React",
+    pt: "Desenvolvedor Full Stack em formação",
+    en: "Full Stack Developer in training",
   },
   headline: {
-    pt: "Transformo ideias em aplicações web performáticas — do backend à interface.",
-    en: "I turn ideas into performant web applications — from backend to interface.",
+    pt: "Estudante de Engenharia de Software buscando minha primeira oportunidade em tecnologia.",
+    en: "Software Engineering student seeking my first opportunity in tech.",
   },
   description: {
-    pt: "Desenvolvedor Full Stack com projetos reais em React, Next.js, .NET e Python. Experiência em autenticação, IA aplicada e colaboração em equipe. Background em liderança e gestão.",
-    en: "Full Stack Developer with real projects in React, Next.js, .NET and Python. Experienced in authentication, applied AI and team collaboration. Background in leadership and management.",
+    pt: "Foco em backend e frontend com C#, .NET, React e aplicações com IA. Trago maturidade profissional de 2+ anos em logística, com liderança, organização de processos e resolução de problemas.",
+    en: "Focused on backend and frontend with C#, .NET, React and AI applications. I bring professional maturity from 2+ years in logistics, with leadership, process organization and problem-solving.",
   },
   cta: {
-    pt: "Aberto a oportunidades em desenvolvimento de software",
-    en: "Open to software development opportunities",
+    pt: "Disponível para vagas de Dev Júnior e Estágio",
+    en: "Available for Junior Developer and Internship positions",
   },
   avatarUrl: "/avatar.jpg",
-  resumeUrl: "/curriculo.pdf", // coloque seu currículo em public/curriculo.pdf
+  resumeUrl: "/Gustavo_Marques_CV.pdf",
+  location: "Barra Mansa, Rio de Janeiro",
+  phone: "(24) 98858-2885",
 
   // --- Links Sociais ---
   socials: {
     github: "https://github.com/Gustavomrib",
     linkedin: "https://www.linkedin.com/in/gustavomrib/",
     whatsapp: "https://wa.me/5524988582885",
-    email: "gustavomrib13@gmail.com",
+    email: "gustavomarques.dev@gmail.com",
   },
 
   // --- Sobre Mim ---
@@ -42,30 +44,30 @@ export const siteData = {
     title: { pt: "Sobre Mim", en: "About Me" },
     paragraphs: {
       pt: [
-        "Sou graduando em Engenharia de Software e desenvolvedor Full Stack com foco em React/TypeScript no frontend e C#/.NET no backend. Meus projetos refletem o que acredito: código limpo, interfaces performáticas e soluções que resolvem problemas reais.",
-        "Já desenvolvi aplicações com autenticação Firebase e OAuth, assistentes de análise de texto com IA em Python, ferramentas de produtividade e participei de projetos colaborativos Full Stack. Cada entrega me ensinou algo novo sobre arquitetura, performance e trabalho em equipe.",
-        "Trago 4 anos de experiência como Supervisor de Logística, onde liderei equipes, automatizei processos e tomei decisões sob pressão — competências que aplico diariamente na forma como planejo e entrego software. Busco uma oportunidade formal para crescer como desenvolvedor.",
+        "Sou estudante de Engenharia de Software na UBM, atualmente no 5º período, com foco em desenvolvimento backend e frontend. Meu interesse principal está no ecossistema .NET, React e em aplicações que envolvem inteligência artificial.",
+        "Antes de migrar para a tecnologia, atuei por mais de 2 anos na área de logística — incluindo liderança de equipes, automação de controles via Excel e tomada de decisão sob pressão. Essa experiência me trouxe maturidade profissional, senso de responsabilidade e capacidade de resolver problemas de forma estratégica, competências que aplico diariamente no desenvolvimento de software.",
+        "Busco minha primeira oportunidade como Desenvolvedor Júnior ou Estagiário. Estou pronto para aprender, contribuir e crescer dentro de uma equipe de tecnologia.",
       ],
       en: [
-        "I am a Software Engineering student and Full Stack developer focused on React/TypeScript for frontend and C#/.NET for backend. My projects reflect what I believe in: clean code, performant interfaces and solutions that solve real problems.",
-        "I have built applications with Firebase and OAuth authentication, AI-powered text analysis assistants in Python, productivity tools and participated in collaborative Full Stack projects. Each delivery taught me something new about architecture, performance and teamwork.",
-        "I bring 4 years of experience as a Logistics Supervisor, where I led teams, automated processes and made decisions under pressure — competencies I apply daily to how I plan and deliver software. Seeking a formal opportunity to grow as a developer.",
+        "I am a Software Engineering student at UBM, currently in my 5th semester, focused on backend and frontend development. My main interest lies in the .NET ecosystem, React, and applications involving artificial intelligence.",
+        "Before transitioning to tech, I worked for over 2 years in logistics — including team leadership, Excel-based control automation, and decision-making under pressure. This experience gave me professional maturity, a sense of responsibility, and the ability to solve problems strategically, skills I apply daily in software development.",
+        "I am looking for my first opportunity as a Junior Developer or Intern. I am ready to learn, contribute, and grow within a technology team.",
       ],
     },
     interests: {
       pt: [
-        "Desenvolvimento Full Stack",
+        "Desenvolvimento Backend",
         "Inteligência Artificial",
         "Automação de Processos",
+        "Liderança & Gestão",
         "Arquitetura de Software",
-        "Aprendizado Contínuo",
       ],
       en: [
-        "Full Stack Development",
+        "Backend Development",
         "Artificial Intelligence",
         "Process Automation",
+        "Leadership & Management",
         "Software Architecture",
-        "Continuous Learning",
       ],
     },
   },
@@ -76,49 +78,73 @@ export const siteData = {
       title: "Front-end",
       icon: "Monitor",
       items: [
-        { name: "React", level: 75 },
-        { name: "TypeScript", level: 70 },
-        { name: "JavaScript", level: 80 },
-        { name: "HTML", level: 90 },
-        { name: "CSS", level: 85 },
-        { name: "Vite", level: 65 },
+        { name: "React", level: 70 },
+        { name: "TypeScript", level: 65 },
+        { name: "JavaScript", level: 75 },
+        { name: "HTML", level: 85 },
+        { name: "CSS", level: 80 },
+        { name: "Vite", level: 60 },
       ],
     },
     backend: {
       title: "Back-end",
       icon: "Server",
       items: [
-        { name: "C#", level: 75 },
-        { name: ".NET", level: 70 },
-        { name: "APIs REST", level: 75 },
+        { name: "C#", level: 70 },
+        { name: ".NET", level: 65 },
+        { name: "Node.js", level: 50 },
+        { name: "APIs REST", level: 60 },
       ],
     },
     database: {
       title: "Banco de Dados",
       icon: "Database",
       items: [
-        { name: "SQL Server", level: 70 },
-        { name: "PostgreSQL", level: 60 },
+        { name: "SQL Server", level: 65 },
+        { name: "PostgreSQL", level: 55 },
       ],
     },
     tools: {
       title: { pt: "Ferramentas", en: "Tools" },
       icon: "Wrench",
       items: [
-        { name: "Git & GitHub", level: 80 },
-        { name: "Excel (Automação)", level: 85 },
+        { name: "Git & GitHub", level: 75 },
+        { name: "Excel (Intermediário)", level: 80 },
       ],
     },
-    learning: {
-      title: { pt: "Aprendendo", en: "Learning" },
+    competencies: {
+      title: { pt: "Competências", en: "Competencies" },
       icon: "BookOpen",
       items: [
-        { name: "Python", level: 40 },
-        { name: "Inteligência Artificial", level: 30 },
-        { name: "Arquitetura de Software", level: 35 },
+        { name: "Liderança", level: 85 },
+        { name: "Comunicação assertiva", level: 80 },
+        { name: "Resolução de problemas", level: 85 },
+        { name: "Proatividade", level: 90 },
       ],
     },
   },
+
+  // --- Certificados ---
+  certificates: [
+    {
+      id: "cert-1",
+      title: "C#: criando sua primeira aplicação",
+      institution: "Alura",
+      description:
+        "Fundamentos da linguagem C#, sintaxe, variáveis, estruturas de controle e criação de uma aplicação console funcional do zero.",
+      url: "https://cursos.alura.com.br/certificate/bcf7fc3a-f9c2-41ff-afa6-67be5e71023f?lang=pt_BR",
+      date: "2024",
+    },
+    {
+      id: "cert-2",
+      title: "Praticando C#: orientação a objetos com classes",
+      institution: "Alura",
+      description:
+        "Conceitos de orientação a objetos em C#: classes, objetos, encapsulamento, herança e polimorfismo aplicados em projetos práticos.",
+      url: "https://cursos.alura.com.br/certificate/8684e258-1368-4fb6-8acf-99c2817ab56d?lang=pt_BR",
+      date: "2024",
+    },
+  ],
 
   // --- Projetos ---
   projects: [
@@ -126,11 +152,11 @@ export const siteData = {
       id: "1",
       title: "Auth App",
       description: {
-        pt: "Aplicação completa de autenticação com login via Google OAuth e e-mail/senha. Desenvolvida com Next.js, TypeScript e Firebase, com rotas protegidas e gerenciamento de estado via Context API.",
-        en: "Complete authentication app with Google OAuth and email/password login. Built with Next.js, TypeScript and Firebase, featuring protected routes and state management via Context API.",
+        pt: "Sistema web com autenticação via Google OAuth, proteção de rotas e cadastro de usuários com geração de JSON. Demonstra domínio de autenticação moderna e gerenciamento de estado.",
+        en: "Web system with Google OAuth authentication, protected routes and user registration with JSON generation. Demonstrates mastery of modern authentication and state management.",
       },
       image: "",
-      tags: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS", "Context API"],
+      tags: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS"],
       category: "frontend",
       github: "https://github.com/Gustavomrib/LoginGoogle",
       demo: "https://login-google-sooty.vercel.app",
@@ -143,11 +169,11 @@ export const siteData = {
         en: "AI Text Analysis Assistant",
       },
       description: {
-        pt: "Assistente inteligente que analisa textos utilizando técnicas de Processamento de Linguagem Natural (NLP). Extrai sentimentos, palavras-chave e gera resumos automaticamente com Python.",
-        en: "Intelligent assistant that analyzes text using Natural Language Processing (NLP) techniques. Extracts sentiments, keywords and generates summaries automatically with Python.",
+        pt: "Projeto em Python para análise textual com técnicas de NLP, incluindo resumo automático, pontos-chave, análise de sentimento e cálculo de complexidade — tudo sem uso de APIs externas.",
+        en: "Python project for text analysis using NLP techniques, including automatic summarization, key points, sentiment analysis and complexity calculation — all without external APIs.",
       },
       image: "",
-      tags: ["Python", "NLP", "IA", "Automação"],
+      tags: ["Python", "NLP", "IA", "Arquitetura modular"],
       category: "ai",
       github: "https://github.com/Gustavomrib/-ASSISTENTE-DE-AN-LISE-DE-TEXTO-COM-IA",
       demo: "",
@@ -155,27 +181,13 @@ export const siteData = {
     },
     {
       id: "3",
-      title: "TechPlanner",
+      title: "Surface — Loja de Roupas Online",
       description: {
-        pt: "Ferramenta de planejamento e organização de tarefas voltada para desenvolvedores. Interface limpa e funcional construída com JavaScript puro, HTML e CSS.",
-        en: "Task planning and organization tool designed for developers. Clean and functional interface built with vanilla JavaScript, HTML and CSS.",
+        pt: "Aplicação web de e-commerce voltada ao segmento de moda, com frontend em React + Vite e backend em Node.js + Express. Foco em experiência do usuário, organização de catálogo e fluxo de compras.",
+        en: "E-commerce web application focused on fashion, with React + Vite frontend and Node.js + Express backend. Focus on user experience, catalog organization and purchase flow.",
       },
       image: "",
-      tags: ["JavaScript", "HTML", "CSS"],
-      category: "frontend",
-      github: "https://github.com/Gustavomrib/TechPlanner",
-      demo: "",
-      featured: false,
-    },
-    {
-      id: "4",
-      title: "Surface E-Commerce",
-      description: {
-        pt: "E-commerce Full Stack desenvolvido em colaboração com outro desenvolvedor. Sistema completo com catálogo de produtos, carrinho de compras e fluxo de checkout. Projeto colaborativo com versionamento via Git.",
-        en: "Full Stack e-commerce built in collaboration with another developer. Complete system with product catalog, shopping cart and checkout flow. Collaborative project with Git versioning.",
-      },
-      image: "",
-      tags: ["JavaScript", "Full Stack", "Git", "Colaborativo"],
+      tags: ["React", "Vite", "Node.js", "Express", "Tailwind CSS"],
       category: "fullstack",
       github: "https://github.com/thalles-j/surface-test",
       demo: "",
@@ -195,28 +207,28 @@ export const siteData = {
   // --- Experiência / Jornada ---
   journey: [
     {
-      year: "2024",
+      year: "2024 — Atual",
       title: {
-        pt: "Desenvolvedor Full Stack — Freelancer",
-        en: "Full Stack Developer — Freelancer",
+        pt: "Estudante de Engenharia de Software",
+        en: "Software Engineering Student",
       },
-      company: { pt: "Projetos Independentes & Colaborativos", en: "Independent & Collaborative Projects" },
+      company: { pt: "UBM — Universidade de Barra Mansa", en: "UBM — Barra Mansa University" },
       description: {
-        pt: "Desenvolvimento de aplicações web com React, Next.js, .NET e Python. Projetos incluem autenticação com Firebase, assistente de IA para análise de texto e colaboração em e-commerce Full Stack.",
-        en: "Web application development with React, Next.js, .NET and Python. Projects include Firebase authentication, AI text analysis assistant and collaboration on Full Stack e-commerce.",
+        pt: "Graduação em andamento (5º período). Foco em desenvolvimento full stack, banco de dados, arquitetura de software e boas práticas de engenharia.",
+        en: "Undergraduate degree in progress (5th semester). Focus on full stack development, databases, software architecture and engineering best practices.",
       },
-      type: "work" as const,
+      type: "education" as const,
     },
     {
-      year: "2022",
+      year: "2022 — Atual",
       title: {
-        pt: "Supervisor de Logística",
-        en: "Logistics Supervisor",
+        pt: "Auxiliar de Logística Pleno",
+        en: "Logistics Assistant (Full)",
       },
       company: { pt: "Teixeira & Souza Resende Ltda", en: "Teixeira & Souza Resende Ltda" },
       description: {
-        pt: "Gestão de operações logísticas, liderança de equipe, automação de processos com Excel e tomada de decisão estratégica. 4 anos de experiência sólida em gestão.",
-        en: "Logistics operations management, team leadership, process automation with Excel and strategic decision-making. 4 years of solid management experience.",
+        pt: "Gestão de fluxo operacional e liderança de equipes. Automação de controles via Excel intermediário. Tomada de decisão rápida e gestão de conflitos.",
+        en: "Operational flow management and team leadership. Control automation via intermediate Excel. Quick decision-making and conflict management.",
       },
       type: "work" as const,
     },
@@ -226,25 +238,12 @@ export const siteData = {
         pt: "Auxiliar de Logística",
         en: "Logistics Assistant",
       },
-      company: { pt: "Pneuscar", en: "Pneuscar" },
+      company: { pt: "Pneuscar Recauchutagem Ltda", en: "Pneuscar Retreading Ltda" },
       description: {
-        pt: "Controle de estoque, suporte operacional e apoio em processos logísticos do dia a dia.",
-        en: "Inventory control, operational support and assistance in daily logistics processes.",
+        pt: "Suporte operacional e controle de estoque. Apoio em processos logísticos do dia a dia.",
+        en: "Operational support and inventory control. Assistance in daily logistics processes.",
       },
       type: "work" as const,
-    },
-    {
-      year: "2024",
-      title: {
-        pt: "Engenharia de Software",
-        en: "Software Engineering",
-      },
-      company: { pt: "Graduação em andamento", en: "Undergraduate — In progress" },
-      description: {
-        pt: "Graduação em Engenharia de Software com foco em desenvolvimento full stack, banco de dados, arquitetura de software e boas práticas de engenharia.",
-        en: "Software Engineering degree focused on full stack development, databases, software architecture and engineering best practices.",
-      },
-      type: "education" as const,
     },
     {
       year: "2023",
@@ -266,6 +265,7 @@ export const siteData = {
     { label: { pt: "Início", en: "Home" }, href: "#hero" },
     { label: { pt: "Sobre", en: "About" }, href: "#about" },
     { label: { pt: "Skills", en: "Skills" }, href: "#skills" },
+    { label: { pt: "Certificados", en: "Certificates" }, href: "#certificates" },
     { label: { pt: "Projetos", en: "Projects" }, href: "#projects" },
     { label: { pt: "Jornada", en: "Journey" }, href: "#journey" },
     { label: { pt: "Contato", en: "Contact" }, href: "#contact" },

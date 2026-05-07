@@ -45,18 +45,18 @@ export default function Contact() {
   ];
 
   const inputClasses =
-    "w-full px-4 py-3.5 bg-white/[0.02] border border-white/[0.06] rounded-xl text-foreground placeholder:text-muted-foreground/40 transition-all duration-300 focus:outline-none focus:border-primary/40 focus:bg-white/[0.04] focus:ring-1 focus:ring-primary/20 text-sm";
+    "w-full px-4 py-3.5 bg-white/[0.015] border border-white/[0.04] rounded-xl text-foreground placeholder:text-muted-foreground/40 transition-all duration-300 focus:outline-none focus:border-primary/30 focus:bg-white/[0.03] focus:ring-1 focus:ring-primary/15 text-sm";
 
   return (
     <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 relative">
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[320px] bg-primary/[0.03] rounded-full blur-[100px]" />
       </div>
 
       <div className="relative max-w-4xl mx-auto">
         <SectionHeading
           title="Contato"
-          subtitle="Tem um projeto em mente, uma vaga aberta ou quer conversar sobre colaboracao? Ficarei feliz em responder."
+          subtitle="Tem uma vaga aberta, um projeto ou quer conversar sobre tecnologia? Ficarei feliz em responder."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
@@ -167,11 +167,11 @@ export default function Contact() {
                   Melhor caminho
                 </p>
                 <h3 className="text-lg font-semibold tracking-tight mb-2">
-                  Vamos acelerar essa conversa
+                  Vamos conversar
                 </h3>
                 <p className="text-sm text-muted leading-relaxed">
-                  Para oportunidades, freelas e parcerias, voce pode falar comigo
-                  por e-mail ou WhatsApp e eu retorno o quanto antes.
+                  Estou aberto a oportunidades de estágio e posições júnior. Me
+                  envie um e-mail ou WhatsApp que retorno o quanto antes.
                 </p>
               </div>
 
@@ -180,8 +180,8 @@ export default function Contact() {
                   Vamos trabalhar juntos
                 </h3>
                 <p className="text-muted text-sm leading-relaxed">
-                  Disponivel para projetos freelance, oportunidades de trabalho e
-                  colaboracoes.
+                  Disponível para oportunidades de trabalho, estágios e
+                  colaborações em projetos.
                 </p>
               </div>
 
