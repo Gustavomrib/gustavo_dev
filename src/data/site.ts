@@ -11,23 +11,24 @@ export const siteData = {
   firstName: "Gustavo",
   fullName: "Gustavo Marques Lopes Ribeiro",
   role: {
-    pt: "Desenvolvedor Full Stack em formação",
-    en: "Full Stack Developer in training",
+    pt: "Desenvolvedor Java em formação",
+    en: "Java Developer in training",
   },
   headline: {
-    pt: "Estudante de Engenharia de Software buscando minha primeira oportunidade em tecnologia.",
-    en: "Software Engineering student seeking my first opportunity in tech.",
+    pt: "Estudante de Engenharia de Software (6º período), focado em Java & Spring Boot — em busca da primeira oportunidade em Portugal.",
+    en: "Software Engineering student (6th semester), focused on Java & Spring Boot — seeking my first opportunity in Portugal.",
   },
   description: {
-    pt: "Foco em backend e frontend com C#, .NET, React e aplicações com IA. Trago maturidade profissional de 2+ anos em logística, com liderança, organização de processos e resolução de problemas.",
-    en: "Focused on backend and frontend with C#, .NET, React and AI applications. I bring professional maturity from 2+ years in logistics, with leadership, process organization and problem-solving.",
+    pt: "Foco em Java & Spring Boot, com base técnica em .NET/C# e React. Experiência de 2+ anos em logística com liderança de equipes.",
+    en: "Focused on Java & Spring Boot, with a technical background in .NET/C# and React. 2+ years of experience in logistics with team leadership.",
   },
   cta: {
-    pt: "Disponível para vagas de Dev Júnior e Estágio",
-    en: "Available for Junior Developer and Internship positions",
+    pt: "Aberto a vagas de Dev Java Júnior · Interesse em Portugal",
+    en: "Open to Junior Java Developer roles · Interest in Portugal",
   },
   avatarUrl: "/avatar.jpg",
   resumeUrl: "/Gustavo_Marques_CV.pdf",
+  resumeUrlEn: "/Gustavo_Marques_CV_EN.pdf",
   location: "Barra Mansa, Rio de Janeiro",
   phone: "(24) 98858-2885",
 
@@ -44,84 +45,74 @@ export const siteData = {
     title: { pt: "Sobre Mim", en: "About Me" },
     paragraphs: {
       pt: [
-        "Sou estudante de Engenharia de Software na UBM, atualmente no 5º período, com foco em desenvolvimento backend e frontend. Meu interesse principal está no ecossistema .NET, React e em aplicações que envolvem inteligência artificial.",
-        "Antes de migrar para a tecnologia, atuei por mais de 2 anos na área de logística — incluindo liderança de equipes, automação de controles via Excel e tomada de decisão sob pressão. Essa experiência me trouxe maturidade profissional, senso de responsabilidade e capacidade de resolver problemas de forma estratégica, competências que aplico diariamente no desenvolvimento de software.",
-        "Busco minha primeira oportunidade como Desenvolvedor Júnior ou Estagiário. Estou pronto para aprender, contribuir e crescer dentro de uma equipe de tecnologia.",
+        "Sou estudante de Engenharia de Software na UBM, cursando o 6º período. Estou em transição de stack: construí minha base técnica com .NET/C# e React, e hoje meu foco está em Java e Spring Boot — ecossistema onde quero desenvolver minha carreira como desenvolvedor backend.",
+        "Atualmente sou estagiário de TI na Tecnored, onde trabalho com Python, automação de processos e aplicações de Inteligência Artificial e Machine Learning.",
+        "Antes de migrar para a tecnologia, trabalhei por mais de 2 anos em logística — liderando equipes, automatizando controles via Excel e tomando decisões sob pressão. Essa experiência me ensinou a resolver problemas de forma estratégica, comunicar com clareza e entregar resultados: habilidades que trago diretamente para o desenvolvimento de software.",
+        "Busco minha primeira oportunidade como Desenvolvedor Java, com interesse especial em Portugal. Sou elegível à residência via CPLP, o que facilita o processo de relocation — e estou pronto para contribuir em uma equipe onde possa crescer com consistência.",
       ],
       en: [
-        "I am a Software Engineering student at UBM, currently in my 5th semester, focused on backend and frontend development. My main interest lies in the .NET ecosystem, React, and applications involving artificial intelligence.",
-        "Before transitioning to tech, I worked for over 2 years in logistics — including team leadership, Excel-based control automation, and decision-making under pressure. This experience gave me professional maturity, a sense of responsibility, and the ability to solve problems strategically, skills I apply daily in software development.",
-        "I am looking for my first opportunity as a Junior Developer or Intern. I am ready to learn, contribute, and grow within a technology team.",
+        "I am a Software Engineering student at UBM, currently in my 6th semester. I am in the middle of a stack transition: I built my technical foundation with .NET/C# and React, and my current focus is Java and Spring Boot — the ecosystem where I want to build my career as a backend developer.",
+        "I'm currently an IT intern at Tecnored, working with Python, process automation, and Artificial Intelligence/Machine Learning applications.",
+        "Before moving into tech, I worked for over 2 years in logistics — leading teams, automating controls via Excel, and making decisions under pressure. That experience taught me to solve problems strategically, communicate clearly, and deliver results: skills I bring directly to software development.",
+        "I am looking for my first opportunity as a Java Developer, with a strong interest in Portugal. I am eligible for residency through CPLP, which simplifies the relocation process — and I am ready to contribute to a team where I can grow with consistency.",
       ],
     },
     interests: {
       pt: [
-        "Desenvolvimento Backend",
+        "Backend com Java",
         "Inteligência Artificial",
         "Automação de Processos",
         "Liderança & Gestão",
         "Arquitetura de Software",
       ],
       en: [
-        "Backend Development",
+        "Backend with Java",
         "Artificial Intelligence",
         "Process Automation",
         "Leadership & Management",
         "Software Architecture",
       ],
     },
+    relocationBadge: {
+      pt: "Aberto a relocation para Portugal · Elegível via CPLP",
+      en: "Open to relocation to Portugal · CPLP eligible",
+    },
   },
 
   // --- Skills ---
   skills: {
-    frontend: {
-      title: "Front-end",
-      icon: "Monitor",
-      items: [
-        { name: "React", level: 70 },
-        { name: "TypeScript", level: 65 },
-        { name: "JavaScript", level: 75 },
-        { name: "HTML", level: 85 },
-        { name: "CSS", level: 80 },
-        { name: "Vite", level: 60 },
-      ],
-    },
-    backend: {
-      title: "Back-end",
-      icon: "Server",
-      items: [
-        { name: "C#", level: 70 },
-        { name: ".NET", level: 65 },
-        { name: "Node.js", level: 50 },
-        { name: "APIs REST", level: 60 },
-      ],
-    },
-    database: {
-      title: "Banco de Dados",
-      icon: "Database",
-      items: [
-        { name: "SQL Server", level: 65 },
-        { name: "PostgreSQL", level: 55 },
-      ],
-    },
-    tools: {
-      title: { pt: "Ferramentas", en: "Tools" },
-      icon: "Wrench",
-      items: [
-        { name: "Git & GitHub", level: 75 },
-        { name: "Excel (Intermediário)", level: 80 },
-      ],
-    },
-    competencies: {
-      title: { pt: "Competências", en: "Competencies" },
-      icon: "BookOpen",
-      items: [
-        { name: "Liderança", level: 85 },
-        { name: "Comunicação assertiva", level: 80 },
-        { name: "Resolução de problemas", level: 85 },
-        { name: "Proatividade", level: 90 },
-      ],
-    },
+    primary: [
+      {
+        name: "Java",
+        label: { pt: "Em foco atual", en: "Current focus" },
+        description: {
+          pt: "Foco principal de estudos — POO, coleções, streams e tratamento de exceções",
+          en: "Main study focus — OOP, collections, streams and exception handling",
+        },
+      },
+      {
+        name: "Spring Boot",
+        label: { pt: "Aprendendo ativamente", en: "Actively learning" },
+        description: {
+          pt: "Spring MVC, JPA/Hibernate, Spring Security e construção de REST APIs",
+          en: "Spring MVC, JPA/Hibernate, Spring Security and REST API development",
+        },
+      },
+    ],
+    tools: [
+      { name: "PostgreSQL", label: { pt: "Base sólida", en: "Solid foundation" } },
+      { name: "SQL Server", label: { pt: "Base sólida", en: "Solid foundation" } },
+      { name: "Git & GitHub", label: { pt: "Base sólida", en: "Solid foundation" } },
+      { name: "Docker", label: { pt: "Aprendendo", en: "Learning" } },
+      { name: "APIs REST", label: { pt: "Base sólida", en: "Solid foundation" } },
+    ],
+    legacy: ["C#", ".NET", "React", "TypeScript", "Node.js"],
+    soft: [
+      { pt: "Liderança", en: "Leadership" },
+      { pt: "Comunicação assertiva", en: "Assertive communication" },
+      { pt: "Resolução de problemas", en: "Problem-solving" },
+      { pt: "Proatividade", en: "Proactivity" },
+    ],
   },
 
   // --- Certificados ---
@@ -207,6 +198,19 @@ export const siteData = {
   // --- Experiência / Jornada ---
   journey: [
     {
+      year: "05/2026 — Atual",
+      title: {
+        pt: "Estagiário de TI",
+        en: "IT Intern",
+      },
+      company: { pt: "Tecnored", en: "Tecnored" },
+      description: {
+        pt: "Atuação com Python, automação de processos e aplicações de Inteligência Artificial e Machine Learning.",
+        en: "Working with Python, process automation, and Artificial Intelligence/Machine Learning applications.",
+      },
+      type: "work" as const,
+    },
+    {
       year: "2024 — Atual",
       title: {
         pt: "Estudante de Engenharia de Software",
@@ -214,13 +218,13 @@ export const siteData = {
       },
       company: { pt: "UBM — Universidade de Barra Mansa", en: "UBM — Barra Mansa University" },
       description: {
-        pt: "Graduação em andamento (5º período). Foco em desenvolvimento full stack, banco de dados, arquitetura de software e boas práticas de engenharia.",
-        en: "Undergraduate degree in progress (5th semester). Focus on full stack development, databases, software architecture and engineering best practices.",
+        pt: "Graduação em andamento (6º período). Foco atual em Java, Spring Boot e arquitetura de software, com base construída em desenvolvimento full stack e banco de dados.",
+        en: "Undergraduate degree in progress (6th semester). Current focus on Java, Spring Boot and software architecture, built on a foundation of full stack development and databases.",
       },
       type: "education" as const,
     },
     {
-      year: "2022 — Atual",
+      year: "2022 — 05/2026",
       title: {
         pt: "Auxiliar de Logística Pleno",
         en: "Logistics Assistant (Full)",

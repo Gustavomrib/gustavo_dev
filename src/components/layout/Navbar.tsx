@@ -3,9 +3,42 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { siteData, t } from "@/data/site";
+import { siteData, t, type Locale } from "@/data/site";
+import { useLocale } from "@/context/LocaleContext";
+
+function LangToggle({
+  locale,
+  setLocale,
+}: {
+  locale: Locale;
+  setLocale: (l: Locale) => void;
+}) {
+  return (
+    <div
+      className="flex items-center bg-white/[0.03] border border-white/[0.06] rounded-lg p-[3px] gap-[2px]"
+      role="group"
+      aria-label="Idioma / Language"
+    >
+      {(["pt", "en"] as const).map((l) => (
+        <button
+          key={l}
+          onClick={() => setLocale(l)}
+          className={`px-2.5 py-1 rounded-[6px] text-[11px] font-bold tracking-widest uppercase transition-all duration-200 ${
+            locale === l
+              ? "bg-primary text-white shadow-sm"
+              : "text-muted-foreground hover:text-muted"
+          }`}
+          aria-pressed={locale === l}
+        >
+          {l.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export default function Navbar() {
+  const { locale, setLocale } = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
@@ -84,44 +117,50 @@ export default function Navbar() {
           <span className="text-primary font-bold">.</span>
         </motion.a>
 
-        {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-1">
-          {siteData.navigation.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick(item.href);
-                }}
-                className={`relative px-3.5 py-2 text-[13px] font-medium rounded-lg transition-all duration-300 z-10 ${
-                  activeSection === item.href
-                    ? "text-primary"
-                    : "text-muted hover:text-foreground"
-                }`}
-              >
-                {t(item.label)}
-                {activeSection === item.href && (
-                  <motion.div
-                    layoutId="navIndicator"
-                    className="absolute inset-0 bg-primary/[0.08] rounded-lg -z-10 ring-1 ring-primary/[0.12]"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop: nav links + lang toggle */}
+        <div className="hidden md:flex items-center gap-3">
+          <ul className="flex items-center gap-1">
+            {siteData.navigation.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(item.href);
+                  }}
+                  className={`relative px-3.5 py-2 text-[13px] font-medium rounded-lg transition-all duration-300 z-10 ${
+                    activeSection === item.href
+                      ? "text-primary"
+                      : "text-muted hover:text-foreground"
+                  }`}
+                >
+                  {t(item.label, locale)}
+                  {activeSection === item.href && (
+                    <motion.div
+                      layoutId="navIndicator"
+                      className="absolute inset-0 bg-primary/[0.08] rounded-lg -z-10 ring-1 ring-primary/[0.12]"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <LangToggle locale={locale} setLocale={setLocale} />
+        </div>
 
-        {/* Mobile toggle */}
-        <motion.button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground/70 hover:text-foreground p-2.5 rounded-xl hover:bg-white/[0.06] active:bg-white/[0.08] transition-colors"
-          aria-label="Menu de navegação"
-          whileTap={{ scale: 0.92 }}
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </motion.button>
+        {/* Mobile: lang toggle + hamburger */}
+        <div className="flex md:hidden items-center gap-2">
+          <LangToggle locale={locale} setLocale={setLocale} />
+          <motion.button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-foreground/70 hover:text-foreground p-2.5 rounded-xl hover:bg-white/[0.06] active:bg-white/[0.08] transition-colors"
+            aria-label="Menu de navegação"
+            whileTap={{ scale: 0.92 }}
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </motion.button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -154,7 +193,7 @@ export default function Navbar() {
                         : "text-muted hover:text-primary hover:bg-white/[0.04] active:bg-white/[0.06]"
                     }`}
                   >
-                    {t(item.label)}
+                    {t(item.label, locale)}
                   </a>
                 </motion.li>
               ))}

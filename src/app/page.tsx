@@ -1,3 +1,4 @@
+import { LocaleProvider } from "@/context/LocaleContext";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -10,7 +11,7 @@ import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <>
+    <LocaleProvider>
       <Navbar />
       <main>
         <Hero />
@@ -22,6 +23,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </LocaleProvider>
   );
 }

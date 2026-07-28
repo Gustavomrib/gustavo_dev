@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { siteData, t } from "@/data/site";
+import { siteData, t, type Locale } from "@/data/site";
+import { useLocale } from "@/context/LocaleContext";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -9,6 +10,7 @@ import { Folder, ArrowUpRight, Users, Sparkles } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 
 export default function Projects() {
+  const { locale } = useLocale();
   const { projects, projectCategories } = siteData;
   const [activeFilter, setActiveFilter] = useState("all");
   const reduceMotion = useReducedMotion();
@@ -54,7 +56,7 @@ export default function Projects() {
                 Stack
               </p>
               <p className="text-2xl font-semibold tracking-tight">Full Stack</p>
-              <p className="text-sm text-muted mt-1">React, Next.js, .NET, Firebase e Python</p>
+              <p className="text-sm text-muted mt-1">Java, Spring Boot, React, Next.js e Python</p>
             </div>
           </div>
         </SectionWrapper>
@@ -71,7 +73,7 @@ export default function Projects() {
                     : "text-muted hover:text-primary"
                 }`}
               >
-                {t(cat.label)}
+                {t(cat.label, locale)}
                 {activeFilter === cat.value && (
                   <motion.div
                     layoutId="projectFilter"
@@ -100,7 +102,7 @@ export default function Projects() {
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                 >
-                  <ProjectCard project={project} featured />
+                  <ProjectCard project={project} featured locale={locale} />
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -123,7 +125,7 @@ export default function Projects() {
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                 >
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} locale={locale} />
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -144,11 +146,12 @@ export default function Projects() {
 interface ProjectCardProps {
   project: (typeof siteData.projects)[number];
   featured?: boolean;
+  locale: Locale;
 }
 
-function ProjectCard({ project, featured = false }: ProjectCardProps) {
+function ProjectCard({ project, featured = false, locale }: ProjectCardProps) {
   const title =
-    typeof project.title === "string" ? project.title : t(project.title);
+    typeof project.title === "string" ? project.title : t(project.title, locale);
   const isCollaborative = "collaborative" in project && project.collaborative;
   const hasDemo = Boolean(project.demo);
 
@@ -214,7 +217,7 @@ function ProjectCard({ project, featured = false }: ProjectCardProps) {
             featured ? "text-[14px] sm:text-[15px]" : "text-[13px]"
           }`}
         >
-          {t(project.description)}
+          {t(project.description, locale)}
         </p>
       </div>
 

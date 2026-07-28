@@ -1,10 +1,12 @@
 "use client";
 
 import { siteData, t } from "@/data/site";
+import { useLocale } from "@/context/LocaleContext";
 import { ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Footer() {
+  const { locale } = useLocale();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -36,7 +38,7 @@ export default function Footer() {
                 href={item.href}
                 className="text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
-                {t(item.label)}
+                {t(item.label, locale)}
               </a>
             ))}
           </nav>

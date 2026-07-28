@@ -21,13 +21,13 @@ export default function SectionWrapper({
   return (
     <motion.div
       ref={ref}
-      initial={reduceMotion ? false : { opacity: 0, y: 32 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 20 }}
       animate={
         reduceMotion
           ? undefined
           : isInView
           ? { opacity: 1, y: 0 }
-          : { opacity: 0, y: 32 }
+          : { opacity: 0, y: 20 }
       }
       transition={{
         duration: 0.7,

@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { siteData } from "@/data/site";
+import { useLocale } from "@/context/LocaleContext";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle, AlertCircle, Loader2, Download } from "lucide-react";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -13,7 +14,8 @@ import {
 } from "@/components/ui/SocialIcons";
 
 export default function Contact() {
-  const { socials, name } = siteData;
+  const { locale } = useLocale();
+  const { socials, name, resumeUrl, resumeUrlEn } = siteData;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -164,24 +166,26 @@ export default function Contact() {
             <div className="space-y-8">
               <div className="rounded-2xl border border-primary/15 bg-primary/[0.05] p-5">
                 <p className="text-[11px] uppercase tracking-[0.18em] text-primary/80 mb-2">
-                  Melhor caminho
+                  {locale === "pt" ? "Melhor caminho" : "Best way"}
                 </p>
                 <h3 className="text-lg font-semibold tracking-tight mb-2">
-                  Vamos conversar
+                  {locale === "pt" ? "Vamos conversar" : "Let's talk"}
                 </h3>
                 <p className="text-sm text-muted leading-relaxed">
-                  Estou aberto a oportunidades de estágio e posições júnior. Me
-                  envie um e-mail ou WhatsApp que retorno o quanto antes.
+                  {locale === "pt"
+                    ? "Estou em busca da primeira oportunidade como Dev Java Júnior, com foco em Portugal. Me envie um e-mail ou WhatsApp que retorno o quanto antes."
+                    : "I'm looking for my first opportunity as a Junior Java Developer, with a focus on Portugal. Send me an email or WhatsApp and I'll reply as soon as possible."}
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold tracking-tight mb-3">
-                  Vamos trabalhar juntos
+                  {locale === "pt" ? "Vamos trabalhar juntos" : "Let's work together"}
                 </h3>
                 <p className="text-muted text-sm leading-relaxed">
-                  Disponível para oportunidades de trabalho, estágios e
-                  colaborações em projetos.
+                  {locale === "pt"
+                    ? "Aberto a vagas de Dev Java Júnior e estágios em backend. Disponível para relocation em Portugal."
+                    : "Open to Junior Java Developer roles and backend internships. Available for relocation to Portugal."}
                 </p>
               </div>
 
@@ -204,7 +208,33 @@ export default function Contact() {
 
               <div>
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground mb-3">
-                  Redes sociais
+                  {locale === "pt" ? "Currículo" : "Résumé"}
+                </p>
+                <div className="space-y-2">
+                  <a
+                    href={resumeUrl}
+                    download
+                    className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-primary/[0.06] border border-primary/[0.15] hover:border-primary/[0.3] hover:bg-primary/[0.1] text-sm font-medium text-primary/80 hover:text-primary transition-all duration-300"
+                  >
+                    <Download size={14} />
+                    <span>🇧🇷</span>
+                    {locale === "pt" ? "Download CV em Português" : "Download CV in Portuguese"}
+                  </a>
+                  <a
+                    href={resumeUrlEn}
+                    download
+                    className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-white/[0.015] border border-white/[0.04] hover:border-primary/[0.15] hover:bg-white/[0.03] text-sm font-medium text-muted hover:text-foreground transition-all duration-300"
+                  >
+                    <Download size={14} />
+                    <span>🇬🇧</span>
+                    <span>Download CV in English</span>
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[11px] uppercase tracking-wider text-muted-foreground mb-3">
+                  {locale === "pt" ? "Redes sociais" : "Social media"}
                 </p>
                 <div className="flex gap-2.5">
                   {socialLinks.map((social) => (
@@ -230,7 +260,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="inline-flex w-full min-h-11 items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3.5 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary/30 hover:text-primary active:scale-95"
               >
-                Conversar no WhatsApp
+                {locale === "pt" ? "Conversar no WhatsApp" : "Chat on WhatsApp"}
                 <ArrowRight size={15} />
               </a>
             </div>
