@@ -19,7 +19,7 @@ export default function Journey() {
   return (
     <section id="journey" className="py-24 sm:py-32 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
-        <SectionHeading title="Jornada" subtitle={subtitle} />
+        <SectionHeading title={locale === "pt" ? "Jornada" : "Journey"} subtitle={subtitle} />
 
         <p className="font-mono text-[12px] text-muted-foreground/45 mb-8 flex items-center gap-1.5 select-none">
           <span>$</span>

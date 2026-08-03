@@ -23,6 +23,26 @@ export default function Projects() {
   const featured = filtered.filter((p) => p.featured);
   const regular = filtered.filter((p) => !p.featured);
 
+  const sectionTitle = locale === "pt" ? "Projetos" : "Projects";
+  const sectionSubtitle =
+    locale === "pt"
+      ? "Projetos reais com foco em produto, autenticação, IA aplicada e experiências Full Stack prontas para demonstrar."
+      : "Real-world projects focused on product, authentication, applied AI and Full Stack experiences ready to showcase.";
+  const statStack =
+    locale === "pt"
+      ? "Java, Spring Boot, React, Next.js e Python"
+      : "Java, Spring Boot, React, Next.js and Python";
+  const statDesc1 =
+    locale === "pt"
+      ? "projetos publicados e estudados a fundo"
+      : "published projects, each studied in depth";
+  const statDesc2 =
+    locale === "pt"
+      ? "cases com narrativa mais forte para recrutadores"
+      : "featured cases with stronger narratives for recruiters";
+  const emptyMsg =
+    locale === "pt" ? "Nenhum projeto nesta categoria." : "No projects in this category.";
+
   return (
     <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6 relative">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -30,10 +50,7 @@ export default function Projects() {
       </div>
 
       <div className="relative max-w-5xl mx-auto">
-        <SectionHeading
-          title="Projetos"
-          subtitle="Projetos reais com foco em produto, autenticacao, IA aplicada e experiencias Full Stack prontas para demonstrar."
-        />
+        <SectionHeading title={sectionTitle} subtitle={sectionSubtitle} />
 
         <SectionWrapper delay={0.06}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 sm:mb-12">
@@ -42,21 +59,21 @@ export default function Projects() {
                 Portfolio
               </p>
               <p className="text-2xl font-semibold tracking-tight">{projects.length}</p>
-              <p className="text-sm text-muted mt-1">projetos publicados e estudados a fundo</p>
+              <p className="text-sm text-muted mt-1">{statDesc1}</p>
             </div>
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-4">
               <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-2">
-                Destaques
+                {locale === "pt" ? "Destaques" : "Featured"}
               </p>
               <p className="text-2xl font-semibold tracking-tight">{featured.length}</p>
-              <p className="text-sm text-muted mt-1">cases com narrativa mais forte para recrutadores</p>
+              <p className="text-sm text-muted mt-1">{statDesc2}</p>
             </div>
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-4">
               <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-2">
                 Stack
               </p>
               <p className="text-2xl font-semibold tracking-tight">Full Stack</p>
-              <p className="text-sm text-muted mt-1">Java, Spring Boot, React, Next.js e Python</p>
+              <p className="text-sm text-muted mt-1">{statStack}</p>
             </div>
           </div>
         </SectionWrapper>
@@ -135,7 +152,7 @@ export default function Projects() {
         {filtered.length === 0 && (
           <div className="text-center py-16">
             <Folder size={40} className="text-white/[0.06] mx-auto mb-4" />
-            <p className="text-muted text-sm">Nenhum projeto nesta categoria.</p>
+            <p className="text-muted text-sm">{emptyMsg}</p>
           </div>
         )}
       </div>
@@ -155,9 +172,22 @@ function ProjectCard({ project, featured = false, locale }: ProjectCardProps) {
   const isCollaborative = "collaborative" in project && project.collaborative;
   const hasDemo = Boolean(project.demo);
 
+  const categoryLabel =
+    project.category === "frontend"
+      ? "Front-end"
+      : project.category === "ai"
+      ? "AI / Python"
+      : "Full Stack";
+
+  const demoLabel = locale === "pt" ? "Demo online" : "Live demo";
+  const repoLabel = locale === "pt" ? "Repositório disponível" : "Repository available";
+  const featuredLabel = locale === "pt" ? "Destaque" : "Featured";
+  const codeLabel = locale === "pt" ? "Código" : "Code";
+  const demoButtonLabel = locale === "pt" ? "Ver demo" : "View demo";
+
   return (
     <div
-      className={`group rounded-2xl bg-white/[0.015] border border-white/[0.04] hover:border-primary/15 overflow-hidden transition-all duration-500 h-full flex flex-col hover:shadow-[0_0_30px_rgba(124,127,255,0.04)] ${
+      className={`group rounded-2xl bg-white/[0.015] border border-white/[0.04] hover:border-primary/15 overflow-hidden transition-all duration-500 h-full flex flex-col hover:shadow-[0_0_30px_rgba(45,140,110,0.04)] ${
         featured ? "ring-1 ring-primary/[0.04]" : ""
       }`}
     >
@@ -168,19 +198,15 @@ function ProjectCard({ project, featured = false, locale }: ProjectCardProps) {
       >
         <div className="flex items-center justify-between gap-3 mb-4">
           <span className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-            {project.category === "frontend"
-              ? "Front-end"
-              : project.category === "ai"
-              ? "IA / Python"
-              : "Full Stack"}
+            {categoryLabel}
           </span>
           {hasDemo ? (
             <span className="inline-flex items-center gap-1.5 text-[11px] text-emerald-300">
               <Sparkles size={11} />
-              Demo online
+              {demoLabel}
             </span>
           ) : (
-            <span className="text-[11px] text-muted-foreground">Repositorio disponivel</span>
+            <span className="text-[11px] text-muted-foreground">{repoLabel}</span>
           )}
         </div>
 
@@ -200,7 +226,7 @@ function ProjectCard({ project, featured = false, locale }: ProjectCardProps) {
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {featured && (
               <span className="px-2 py-0.5 bg-primary/[0.08] border border-primary/[0.12] text-primary text-[10px] font-semibold uppercase tracking-wider rounded-md">
-                Destaque
+                {featuredLabel}
               </span>
             )}
             {isCollaborative && (
@@ -240,10 +266,10 @@ function ProjectCard({ project, featured = false, locale }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-white/[0.06] px-3 py-2 text-[13px] text-muted hover:text-primary hover:border-primary/25 transition-colors duration-300 active:scale-95"
-              aria-label={`Codigo do projeto ${title} no GitHub`}
+              aria-label={`${codeLabel} — ${title}`}
             >
               <GithubIcon size={14} />
-              Codigo
+              {codeLabel}
             </a>
           )}
           {project.demo && (
@@ -252,9 +278,9 @@ function ProjectCard({ project, featured = false, locale }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-primary to-accent px-3 py-2 text-[13px] text-white hover:brightness-105 transition-all duration-300 ml-auto active:scale-95"
-              aria-label={`Demo do projeto ${title}`}
+              aria-label={`${demoButtonLabel} — ${title}`}
             >
-              Ver demo
+              {demoButtonLabel}
               <ArrowUpRight size={13} />
             </a>
           )}

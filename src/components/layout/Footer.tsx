@@ -58,7 +58,8 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-white/[0.04] text-center">
           <p className="text-[12px] text-muted-foreground tracking-wide">
-            © {currentYear} {siteData.name}. Todos os direitos reservados.
+            © {currentYear} {siteData.name}.{" "}
+            {locale === "pt" ? "Todos os direitos reservados." : "All rights reserved."}
           </p>
         </div>
       </div>

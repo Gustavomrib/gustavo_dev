@@ -27,8 +27,7 @@ export const siteData = {
     en: "Open to Junior Java Developer roles · Interest in Portugal",
   },
   avatarUrl: "/avatar.jpg",
-  resumeUrl: "/Gustavo_Marques_CV.pdf",
-  resumeUrlEn: "/Gustavo_Marques_CV_EN.pdf",
+  resumeUrl: "/Gustavo_Marques_CV.pdf?v=2026-07",
   location: "Barra Mansa, Rio de Janeiro",
   phone: "(24) 98858-2885",
 

@@ -264,7 +264,7 @@ export default function Hero() {
             >
               <span className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)] translate-x-[-140%] group-hover:translate-x-[140%] transition-transform duration-700" />
               <span className="relative z-10 inline-flex items-center gap-2">
-                Ver projetos
+                {locale === "pt" ? "Ver projetos" : "View projects"}
                 <ArrowRight
                   size={15}
                   className="transition-transform group-hover:translate-x-0.5"
@@ -278,17 +278,17 @@ export default function Hero() {
               className="min-h-11 px-6 py-3.5 rounded-xl font-medium text-sm text-muted hover:text-primary bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
             >
               <Mail size={14} />
-              Falar comigo
+              {locale === "pt" ? "Falar comigo" : "Contact me"}
             </motion.button>
 
             <motion.a
               {...reveal(0.68, 14)}
               href={siteData.resumeUrl}
-              download="curriculo.pdf"
+              download="Gustavo_Marques_CV.pdf"
               className="min-h-11 px-6 py-3.5 rounded-xl font-medium text-sm text-muted hover:text-primary bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
             >
               <Download size={14} />
-              Baixar currículo
+              {locale === "pt" ? "Baixar currículo" : "Download resume"}
             </motion.a>
           </div>
 

@@ -3,42 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { siteData, t, type Locale } from "@/data/site";
+import { siteData, t } from "@/data/site";
 import { useLocale } from "@/context/LocaleContext";
 
-function LangToggle({
-  locale,
-  setLocale,
-}: {
-  locale: Locale;
-  setLocale: (l: Locale) => void;
-}) {
-  return (
-    <div
-      className="flex items-center bg-white/[0.03] border border-white/[0.06] rounded-lg p-[3px] gap-[2px]"
-      role="group"
-      aria-label="Idioma / Language"
-    >
-      {(["pt", "en"] as const).map((l) => (
-        <button
-          key={l}
-          onClick={() => setLocale(l)}
-          className={`px-2.5 py-1 rounded-[6px] text-[11px] font-bold tracking-widest uppercase transition-all duration-200 ${
-            locale === l
-              ? "bg-primary text-white shadow-sm"
-              : "text-muted-foreground hover:text-muted"
-          }`}
-          aria-pressed={locale === l}
-        >
-          {l.toUpperCase()}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 export default function Navbar() {
-  const { locale, setLocale } = useLocale();
+  const { locale } = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
@@ -117,7 +86,7 @@ export default function Navbar() {
           <span className="text-primary font-bold">.</span>
         </motion.a>
 
-        {/* Desktop: nav links + lang toggle */}
+        {/* Desktop: nav links */}
         <div className="hidden md:flex items-center gap-3">
           <ul className="flex items-center gap-1">
             {siteData.navigation.map((item) => (
@@ -146,12 +115,10 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <LangToggle locale={locale} setLocale={setLocale} />
         </div>
 
-        {/* Mobile: lang toggle + hamburger */}
+        {/* Mobile: hamburger */}
         <div className="flex md:hidden items-center gap-2">
-          <LangToggle locale={locale} setLocale={setLocale} />
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             className="text-foreground/70 hover:text-foreground p-2.5 rounded-xl hover:bg-white/[0.06] active:bg-white/[0.08] transition-colors"

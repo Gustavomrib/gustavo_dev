@@ -15,7 +15,7 @@ import {
 
 export default function Contact() {
   const { locale } = useLocale();
-  const { socials, name, resumeUrl, resumeUrlEn } = siteData;
+  const { socials, name, resumeUrl } = siteData;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -57,8 +57,12 @@ export default function Contact() {
 
       <div className="relative max-w-4xl mx-auto">
         <SectionHeading
-          title="Contato"
-          subtitle="Tem uma vaga aberta, um projeto ou quer conversar sobre tecnologia? Ficarei feliz em responder."
+          title={locale === "pt" ? "Contato" : "Contact"}
+          subtitle={
+            locale === "pt"
+              ? "Tem uma vaga aberta, um projeto ou quer conversar sobre tecnologia? Ficarei feliz em responder."
+              : "Have an open position, a project, or want to talk tech? I'll be happy to reply."
+          }
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
@@ -69,7 +73,7 @@ export default function Contact() {
                   htmlFor="name"
                   className="block text-[13px] font-medium mb-2 text-muted"
                 >
-                  Nome
+                  {locale === "pt" ? "Nome" : "Name"}
                 </label>
                 <input
                   type="text"
@@ -80,7 +84,7 @@ export default function Contact() {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   className={inputClasses}
-                  placeholder="Seu nome"
+                  placeholder={locale === "pt" ? "Seu nome" : "Your name"}
                 />
               </div>
 
@@ -109,7 +113,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-[13px] font-medium mb-2 text-muted"
                 >
-                  Mensagem
+                  {locale === "pt" ? "Mensagem" : "Message"}
                 </label>
                 <textarea
                   id="message"
@@ -120,7 +124,11 @@ export default function Contact() {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   className={`${inputClasses} resize-none`}
-                  placeholder="Conte-me sobre seu projeto ou ideia..."
+                  placeholder={
+                    locale === "pt"
+                      ? "Conte-me sobre seu projeto ou ideia..."
+                      : "Tell me about your project or idea..."
+                  }
                 />
               </div>
 
@@ -140,21 +148,21 @@ export default function Contact() {
                 {status === "sending" ? (
                   <>
                     <Loader2 size={15} className="animate-spin" />
-                    Enviando...
+                    {locale === "pt" ? "Enviando..." : "Sending..."}
                   </>
                 ) : status === "sent" ? (
                   <>
                     <CheckCircle size={15} />
-                    Mensagem enviada com sucesso!
+                    {locale === "pt" ? "Mensagem enviada com sucesso!" : "Message sent successfully!"}
                   </>
                 ) : status === "error" ? (
                   <>
                     <AlertCircle size={15} />
-                    Erro ao enviar. Tente novamente.
+                    {locale === "pt" ? "Erro ao enviar. Tente novamente." : "Error sending. Please try again."}
                   </>
                 ) : (
                   <>
-                    Enviar mensagem
+                    {locale === "pt" ? "Enviar mensagem" : "Send message"}
                     <ArrowRight size={15} />
                   </>
                 )}
@@ -219,15 +227,6 @@ export default function Contact() {
                     <Download size={14} />
                     <span>🇧🇷</span>
                     {locale === "pt" ? "Download CV em Português" : "Download CV in Portuguese"}
-                  </a>
-                  <a
-                    href={resumeUrlEn}
-                    download
-                    className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-white/[0.015] border border-white/[0.04] hover:border-primary/[0.15] hover:bg-white/[0.03] text-sm font-medium text-muted hover:text-foreground transition-all duration-300"
-                  >
-                    <Download size={14} />
-                    <span>🇬🇧</span>
-                    <span>Download CV in English</span>
                   </a>
                 </div>
               </div>
