@@ -14,7 +14,7 @@
   --color-border: #1e2b27;
   --color-border-light: #253530;
   --color-muted: #9B9B95;
-  --color-muted-foreground: #5a5a54;
+  --color-muted-foreground: #AAAAA4;
 
   /* ── Font ── */
   --font-sans: var(--font-geist-sans);

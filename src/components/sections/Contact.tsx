@@ -30,7 +30,16 @@ export default function Contact() {
     setStatus("sending");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Falha ao enviar a mensagem.");
+      }
+
       setStatus("sent");
       setFormData({ name: "", email: "", message: "" });
       setTimeout(() => setStatus("idle"), 4000);

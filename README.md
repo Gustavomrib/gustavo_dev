@@ -78,6 +78,17 @@ npm run dev
 
 Acesse **http://localhost:3000**
 
+## Formulário de Contato (Resend)
+
+O formulário de contato envia mensagens por e-mail via [Resend](https://resend.com). Crie uma conta gratuita em **resend.com**, copie a `RESEND_API_KEY` da dashboard e coloque-a em `.env.local`:
+
+```bash
+# .env.local
+RESEND_API_KEY=re_xxxxxxxx
+```
+
+Depois, em **Settings → Domains** do Resend, verifique um domínio ou use o domínio de teste `onboarding@resend.dev` para testar. O campo `to` do envio é lido de `src/data/site.ts` (`socials.email`).
+
 ## Deploy
 
 O projeto está pronto para deploy no [Vercel](https://vercel.com):

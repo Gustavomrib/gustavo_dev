@@ -6,7 +6,7 @@ import { useLocale } from "@/context/LocaleContext";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Folder, ArrowUpRight, Users, Sparkles } from "lucide-react";
+import { Folder, ArrowUpRight, Sparkles } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 
 export default function Projects() {
@@ -26,12 +26,12 @@ export default function Projects() {
   const sectionTitle = locale === "pt" ? "Projetos" : "Projects";
   const sectionSubtitle =
     locale === "pt"
-      ? "Projetos reais com foco em produto, autenticação, IA aplicada e experiências Full Stack prontas para demonstrar."
-      : "Real-world projects focused on product, authentication, applied AI and Full Stack experiences ready to showcase.";
+      ? "Projeto real com foco em autenticação moderna e gerenciamento de estado, pronto para demonstrar."
+      : "Real-world project focused on modern authentication and state management, ready to showcase.";
   const statStack =
     locale === "pt"
-      ? "Java, Spring Boot, React, Next.js e Python"
-      : "Java, Spring Boot, React, Next.js and Python";
+      ? "Next.js, TypeScript, Firebase e Tailwind CSS"
+      : "Next.js, TypeScript, Firebase and Tailwind CSS";
   const statDesc1 =
     locale === "pt"
       ? "projetos publicados e estudados a fundo"
@@ -72,7 +72,7 @@ export default function Projects() {
               <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-2">
                 Stack
               </p>
-              <p className="text-2xl font-semibold tracking-tight">Full Stack</p>
+              <p className="text-2xl font-semibold tracking-tight">Frontend</p>
               <p className="text-sm text-muted mt-1">{statStack}</p>
             </div>
           </div>
@@ -169,15 +169,9 @@ interface ProjectCardProps {
 function ProjectCard({ project, featured = false, locale }: ProjectCardProps) {
   const title =
     typeof project.title === "string" ? project.title : t(project.title, locale);
-  const isCollaborative = "collaborative" in project && project.collaborative;
   const hasDemo = Boolean(project.demo);
 
-  const categoryLabel =
-    project.category === "frontend"
-      ? "Front-end"
-      : project.category === "ai"
-      ? "AI / Python"
-      : "Full Stack";
+  const categoryLabel = project.category === "frontend" ? "Front-end" : "Full Stack";
 
   const demoLabel = locale === "pt" ? "Demo online" : "Live demo";
   const repoLabel = locale === "pt" ? "Repositório disponível" : "Repository available";
@@ -227,12 +221,6 @@ function ProjectCard({ project, featured = false, locale }: ProjectCardProps) {
             {featured && (
               <span className="px-2 py-0.5 bg-primary/[0.08] border border-primary/[0.12] text-primary text-[10px] font-semibold uppercase tracking-wider rounded-md">
                 {featuredLabel}
-              </span>
-            )}
-            {isCollaborative && (
-              <span className="px-2 py-0.5 bg-accent/[0.08] border border-accent/[0.12] text-accent text-[10px] font-semibold uppercase tracking-wider rounded-md flex items-center gap-1">
-                <Users size={10} />
-                Collab
               </span>
             )}
           </div>

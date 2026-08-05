@@ -21,7 +21,7 @@ export default function Journey() {
       <div className="max-w-3xl mx-auto">
         <SectionHeading title={locale === "pt" ? "Jornada" : "Journey"} subtitle={subtitle} />
 
-        <p className="font-mono text-[12px] text-muted-foreground/45 mb-8 flex items-center gap-1.5 select-none">
+        <p className="font-mono text-[12px] text-muted-foreground/70 mb-8 flex items-center gap-1.5 select-none">
           <span>$</span>
           <span>
             git log{" "}
@@ -60,7 +60,7 @@ export default function Journey() {
                     <div className="flex-1 min-w-0 pt-2 pb-7 pl-2">
                       {/* Git meta row */}
                       <div className="flex flex-wrap items-center gap-2 mb-2.5">
-                        <span className="font-mono text-[10px] text-muted-foreground/35 select-none">
+                        <span className="font-mono text-[10px] text-muted-foreground/70 select-none">
                           {hash}
                         </span>
                         <span
@@ -72,7 +72,7 @@ export default function Journey() {
                         >
                           {item.year}
                         </span>
-                        <span className="font-mono text-[9px] text-muted-foreground/35 uppercase tracking-[0.1em] select-none">
+                        <span className="font-mono text-[9px] text-muted-foreground/70 uppercase tracking-[0.1em] select-none">
                           {isWork ? "experience" : "education"}
                         </span>
                       </div>

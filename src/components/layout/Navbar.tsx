@@ -123,6 +123,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="text-foreground/70 hover:text-foreground p-2.5 rounded-xl hover:bg-white/[0.06] active:bg-white/[0.08] transition-colors"
             aria-label="Menu de navegação"
+            aria-expanded={isOpen}
             whileTap={{ scale: 0.92 }}
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}

@@ -29,7 +29,6 @@ export const siteData = {
   avatarUrl: "/avatar.jpg",
   resumeUrl: "/Gustavo_Marques_CV.pdf?v=2026-07",
   location: "Barra Mansa, Rio de Janeiro",
-  phone: "(24) 98858-2885",
 
   // --- Links Sociais ---
   socials: {
@@ -80,32 +79,40 @@ export const siteData = {
 
   // --- Skills ---
   skills: {
+    // Certificado (Cisco) — conceitos comprovados
     primary: [
       {
-        name: "Java",
-        label: { pt: "Em foco atual", en: "Current focus" },
+        name: "Fundamentos de Cibersegurança",
+        label: { pt: "Certificado — Cisco", en: "Certified — Cisco" },
         description: {
-          pt: "Foco principal de estudos — POO, coleções, streams e tratamento de exceções",
-          en: "Main study focus — OOP, collections, streams and exception handling",
+          pt: "Confidencialidade, integridade e disponibilidade (CIA), valor da informação, risco, incidentes e cultura de segurança.",
+          en: "Confidentiality, integrity and availability (CIA triad), the value of information, risk, incidents and security culture.",
         },
       },
       {
-        name: "Spring Boot",
-        label: { pt: "Aprendendo ativamente", en: "Actively learning" },
+        name: "Ameaças Cibernéticas",
+        label: { pt: "Certificado — Cisco", en: "Certified — Cisco" },
         description: {
-          pt: "Spring MVC, JPA/Hibernate, Spring Security e construção de REST APIs",
-          en: "Spring MVC, JPA/Hibernate, Spring Security and REST API development",
+          pt: "Malware, phishing, engenharia social, brute force, SQL Injection, XSS e ataques de DoS/DDoS — principais vetores e como reconhecê-los.",
+          en: "Malware, phishing, social engineering, brute force, SQL Injection, XSS and DoS/DDoS attacks — main vectors and how to recognize them.",
         },
       },
     ],
+    // Trilha em andamento (Alura) — ainda em estudo, sem certificação concluída
     tools: [
-      { name: "PostgreSQL", label: { pt: "Base sólida", en: "Solid foundation" } },
-      { name: "SQL Server", label: { pt: "Base sólida", en: "Solid foundation" } },
-      { name: "Git & GitHub", label: { pt: "Base sólida", en: "Solid foundation" } },
-      { name: "Docker", label: { pt: "Aprendendo", en: "Learning" } },
-      { name: "APIs REST", label: { pt: "Base sólida", en: "Solid foundation" } },
+      { name: "Redes & Protocolos", label: { pt: "Em aprendizado", en: "Learning" } },
+      { name: "Segurança em Aplicações", label: { pt: "Em aprendizado", en: "Learning" } },
+      { name: "Linux & Windows", label: { pt: "Em aprendizado", en: "Learning" } },
+      { name: "Criptografia & MFA", label: { pt: "Em aprendizado", en: "Learning" } },
+      { name: "Pentest Básico", label: { pt: "Em aprendizado", en: "Learning" } },
     ],
-    legacy: ["C#", ".NET", "React", "TypeScript", "Node.js"],
+    learningTrack: [
+      "Docker & Cloud Security",
+      "DevSecOps & CI/CD",
+      "SIEM & Resposta a Incidentes",
+      "Governança, Risco & Compliance (LGPD)",
+    ],
+    legacy: ["Java", "C#", ".NET", "React", "TypeScript", "Node.js"],
     soft: [
       { pt: "Liderança", en: "Leadership" },
       { pt: "Comunicação assertiva", en: "Assertive communication" },
@@ -118,21 +125,12 @@ export const siteData = {
   certificates: [
     {
       id: "cert-1",
-      title: "C#: criando sua primeira aplicação",
-      institution: "Alura",
+      title: "Introdução à Cibersegurança",
+      institution: "Cisco Networking Academy",
       description:
-        "Fundamentos da linguagem C#, sintaxe, variáveis, estruturas de controle e criação de uma aplicação console funcional do zero.",
-      url: "https://cursos.alura.com.br/certificate/bcf7fc3a-f9c2-41ff-afa6-67be5e71023f?lang=pt_BR",
-      date: "2024",
-    },
-    {
-      id: "cert-2",
-      title: "Praticando C#: orientação a objetos com classes",
-      institution: "Alura",
-      description:
-        "Conceitos de orientação a objetos em C#: classes, objetos, encapsulamento, herança e polimorfismo aplicados em projetos práticos.",
-      url: "https://cursos.alura.com.br/certificate/8684e258-1368-4fb6-8acf-99c2817ab56d?lang=pt_BR",
-      date: "2024",
+        "Fundamentos de segurança da informação: valor da informação, confidencialidade, integridade e disponibilidade (CIA), risco, ameaças, incidentes e cultura de segurança.",
+      url: "",
+      date: "2026",
     },
   ],
 
@@ -152,46 +150,12 @@ export const siteData = {
       demo: "https://login-google-sooty.vercel.app",
       featured: true,
     },
-    {
-      id: "2",
-      title: {
-        pt: "Assistente de Análise de Texto com IA",
-        en: "AI Text Analysis Assistant",
-      },
-      description: {
-        pt: "Projeto em Python para análise textual com técnicas de NLP, incluindo resumo automático, pontos-chave, análise de sentimento e cálculo de complexidade — tudo sem uso de APIs externas.",
-        en: "Python project for text analysis using NLP techniques, including automatic summarization, key points, sentiment analysis and complexity calculation — all without external APIs.",
-      },
-      image: "",
-      tags: ["Python", "NLP", "IA", "Arquitetura modular"],
-      category: "ai",
-      github: "https://github.com/Gustavomrib/-ASSISTENTE-DE-AN-LISE-DE-TEXTO-COM-IA",
-      demo: "",
-      featured: true,
-    },
-    {
-      id: "3",
-      title: "Surface — Loja de Roupas Online",
-      description: {
-        pt: "Aplicação web de e-commerce voltada ao segmento de moda, com frontend em React + Vite e backend em Node.js + Express. Foco em experiência do usuário, organização de catálogo e fluxo de compras.",
-        en: "E-commerce web application focused on fashion, with React + Vite frontend and Node.js + Express backend. Focus on user experience, catalog organization and purchase flow.",
-      },
-      image: "",
-      tags: ["React", "Vite", "Node.js", "Express", "Tailwind CSS"],
-      category: "fullstack",
-      github: "https://github.com/thalles-j/surface-test",
-      demo: "",
-      featured: false,
-      collaborative: true,
-    },
   ],
 
   // --- Categorias de Projetos (para filtro) ---
   projectCategories: [
     { value: "all", label: { pt: "Todos", en: "All" } },
     { value: "frontend", label: { pt: "Front-end", en: "Front-end" } },
-    { value: "ai", label: { pt: "IA / Python", en: "AI / Python" } },
-    { value: "fullstack", label: { pt: "Full Stack", en: "Full Stack" } },
   ],
 
   // --- Experiência / Jornada ---

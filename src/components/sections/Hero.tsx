@@ -16,7 +16,7 @@ import Image from "next/image";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const COMMAND = "whoami";
-const OUTPUT = "OBRUXO.DEV";
+const OUTPUT = "GUSTAVOMRIB.DEV";
 
 function TypingTerminal({ reduceMotion }: { reduceMotion: boolean }) {
   const [cmdText, setCmdText] = useState(reduceMotion ? COMMAND : "");
@@ -71,7 +71,7 @@ function TypingTerminal({ reduceMotion }: { reduceMotion: boolean }) {
         <span className="w-2 h-2 rounded-full bg-yellow-500/50" aria-hidden="true" />
         <span className="w-2 h-2 rounded-full bg-green-500/50" aria-hidden="true" />
         <span className="ml-2 font-mono text-[10px] text-muted-foreground/40 select-none">
-          obruxo.dev — bash
+          gustavomrib.dev — bash
         </span>
       </div>
       <div className="px-4 py-3 font-mono text-[13px]">
@@ -105,6 +105,10 @@ export default function Hero() {
   const avatarTranslateX = useTransform(smoothX, [0, 100], [-5, 5]);
   const pointerGlowX = useTransform(smoothX, [0, 100], [-10, 10]);
   const pointerGlowY = useTransform(smoothY, [0, 100], [-10, 10]);
+  const glowOneX = useTransform(smoothX, [0, 100], [-16, 16]);
+  const glowOneY = useTransform(smoothY, [0, 100], [-20, 14]);
+  const glowTwoX = useTransform(smoothX, [0, 100], [10, -12]);
+  const glowTwoY = useTransform(smoothY, [0, 100], [8, -8]);
 
   const handleScroll = (href: string) => {
     const el = document.querySelector(href);
@@ -152,8 +156,8 @@ export default function Hero() {
             !enableInteractiveMotion
               ? undefined
               : {
-                  x: useTransform(smoothX, [0, 100], [-16, 16]),
-                  y: useTransform(smoothY, [0, 100], [-20, 14]),
+                  x: glowOneX,
+                  y: glowOneY,
                 }
           }
           animate={
@@ -173,8 +177,8 @@ export default function Hero() {
             !enableInteractiveMotion
               ? undefined
               : {
-                  x: useTransform(smoothX, [0, 100], [10, -12]),
-                  y: useTransform(smoothY, [0, 100], [8, -8]),
+                  x: glowTwoX,
+                  y: glowTwoY,
                 }
           }
           animate={
