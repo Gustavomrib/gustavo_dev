@@ -46,13 +46,11 @@ export const siteData = {
         "Sou estudante de Engenharia de Software na UBM, cursando o 6º período. Estou em transição de stack: construí minha base técnica com .NET/C# e React, e hoje meu foco está em Java e Spring Boot — ecossistema onde quero desenvolver minha carreira como desenvolvedor backend.",
         "Atualmente sou estagiário de TI na Tecnored, onde trabalho com Python, automação de processos e aplicações de Inteligência Artificial e Machine Learning.",
         "Antes de migrar para a tecnologia, trabalhei por mais de 2 anos em logística — liderando equipes, automatizando controles via Excel e tomando decisões sob pressão. Essa experiência me ensinou a resolver problemas de forma estratégica, comunicar com clareza e entregar resultados: habilidades que trago diretamente para o desenvolvimento de software.",
-        "Busco minha primeira oportunidade como Desenvolvedor Java, com interesse especial em Portugal. Sou elegível à residência via CPLP, o que facilita o processo de relocation — e estou pronto para contribuir em uma equipe onde possa crescer com consistência.",
       ],
       en: [
         "I am a Software Engineering student at UBM, currently in my 6th semester. I am in the middle of a stack transition: I built my technical foundation with .NET/C# and React, and my current focus is Java and Spring Boot — the ecosystem where I want to build my career as a backend developer.",
         "I'm currently an IT intern at Tecnored, working with Python, process automation, and Artificial Intelligence/Machine Learning applications.",
         "Before moving into tech, I worked for over 2 years in logistics — leading teams, automating controls via Excel, and making decisions under pressure. That experience taught me to solve problems strategically, communicate clearly, and deliver results: skills I bring directly to software development.",
-        "I am looking for my first opportunity as a Java Developer, with a strong interest in Portugal. I am eligible for residency through CPLP, which simplifies the relocation process — and I am ready to contribute to a team where I can grow with consistency.",
       ],
     },
     interests: {
@@ -70,10 +68,6 @@ export const siteData = {
         "Leadership & Management",
         "Software Architecture",
       ],
-    },
-    relocationBadge: {
-      pt: "Aberto a relocation para Portugal · Elegível via CPLP",
-      en: "Open to relocation to Portugal · CPLP eligible",
     },
   },
 
@@ -122,17 +116,7 @@ export const siteData = {
   },
 
   // --- Certificados ---
-  certificates: [
-    {
-      id: "cert-1",
-      title: "Introdução à Cibersegurança",
-      institution: "Cisco Networking Academy",
-      description:
-        "Fundamentos de segurança da informação: valor da informação, confidencialidade, integridade e disponibilidade (CIA), risco, ameaças, incidentes e cultura de segurança.",
-      url: "",
-      date: "2026",
-    },
-  ],
+  certificates: [] as Certificate[],
 
   // --- Projetos ---
   projects: [
@@ -232,7 +216,6 @@ export const siteData = {
     { label: { pt: "Início", en: "Home" }, href: "#hero" },
     { label: { pt: "Sobre", en: "About" }, href: "#about" },
     { label: { pt: "Skills", en: "Skills" }, href: "#skills" },
-    { label: { pt: "Certificados", en: "Certificates" }, href: "#certificates" },
     { label: { pt: "Projetos", en: "Projects" }, href: "#projects" },
     { label: { pt: "Jornada", en: "Journey" }, href: "#journey" },
     { label: { pt: "Contato", en: "Contact" }, href: "#contact" },
@@ -241,6 +224,15 @@ export const siteData = {
 
 // --- Helpers ---
 export type SiteData = typeof siteData;
+
+export type Certificate = {
+  id: string;
+  title: string;
+  institution: string;
+  description: string;
+  url: string;
+  date: string;
+};
 
 /** Resolve a localized string or plain string */
 export function t(value: string | { pt: string; en: string }, locale: Locale = "pt"): string {

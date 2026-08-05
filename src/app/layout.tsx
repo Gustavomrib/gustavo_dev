@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Gustavo Marques Lopes Ribeiro | Desenvolvedor Java em formação",
   description:
-    "Portfólio de Gustavo Marques Lopes Ribeiro — estudante de Engenharia de Software focado em Java & Spring Boot, buscando primeira oportunidade em Portugal. Elegível via CPLP.",
+    "Portfólio de Gustavo Marques Lopes Ribeiro — estudante de Engenharia de Software focado em Java & Spring Boot, buscando primeira oportunidade em Portugal.",
   keywords: [
     "desenvolvedor java",
     "java",
@@ -47,7 +47,6 @@ export const metadata: Metadata = {
     "backend",
     "júnior",
     "portugal",
-    "cplp",
     "react",
     "next.js",
     ".net",
@@ -61,7 +60,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gustavo Marques Lopes Ribeiro | Desenvolvedor Java em formação",
     description:
-      "Estudante de Engenharia de Software focado em Java & Spring Boot, buscando primeira oportunidade em Portugal. Elegível via CPLP.",
+      "Estudante de Engenharia de Software focado em Java & Spring Boot, buscando primeira oportunidade em Portugal.",
     type: "website",
     locale: "pt_BR",
     siteName: "Gustavo Marques Lopes Ribeiro - Portfolio",

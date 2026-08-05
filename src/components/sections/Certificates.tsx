@@ -9,6 +9,8 @@ import { GraduationCap, ArrowUpRight, Award } from "lucide-react";
 export default function Certificates() {
   const { certificates } = siteData;
 
+  if (certificates.length === 0) return null;
+
   return (
     <section id="certificates" className="py-28 sm:py-32 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">

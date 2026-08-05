@@ -40,13 +40,6 @@ export default function About() {
           ))}
         </div>
 
-        <SectionWrapper delay={0.32}>
-          <div className="mt-10 inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-accent/[0.07] border border-accent/[0.18] text-accent/90 text-[13px] font-medium transition-all duration-300 hover:bg-accent/[0.1] hover:border-accent/[0.25]">
-            <span className="text-base" aria-hidden="true">🇵🇹</span>
-            {t(about.relocationBadge, locale)}
-          </div>
-        </SectionWrapper>
-
         <SectionWrapper delay={0.42}>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {interests.map((interest) => (
