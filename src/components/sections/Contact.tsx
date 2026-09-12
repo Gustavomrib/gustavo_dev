@@ -59,8 +59,8 @@ export default function Contact() {
     "w-full px-4 py-3.5 bg-white/[0.015] border border-white/[0.04] rounded-xl text-foreground placeholder:text-muted-foreground/40 transition-all duration-300 focus:outline-none focus:border-primary/30 focus:bg-white/[0.03] focus:ring-1 focus:ring-primary/15 text-sm";
 
   return (
-    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 relative">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[320px] bg-primary/[0.03] rounded-full blur-[100px]" />
       </div>
 
@@ -190,19 +190,8 @@ export default function Contact() {
                 </h3>
                 <p className="text-sm text-muted leading-relaxed">
                   {locale === "pt"
-                    ? "Estou em busca da primeira oportunidade como Dev Java Júnior, com foco em Portugal. Me envie um e-mail ou WhatsApp que retorno o quanto antes."
-                    : "I'm looking for my first opportunity as a Junior Java Developer, with a focus on Portugal. Send me an email or WhatsApp and I'll reply as soon as possible."}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold tracking-tight mb-3">
-                  {locale === "pt" ? "Vamos trabalhar juntos" : "Let's work together"}
-                </h3>
-                <p className="text-muted text-sm leading-relaxed">
-                  {locale === "pt"
-                    ? "Aberto a vagas de Dev Java Júnior e estágios em backend. Disponível para relocation em Portugal."
-                    : "Open to Junior Java Developer roles and backend internships. Available for relocation to Portugal."}
+                    ? "Tenho interesse em oportunidades júnior de desenvolvimento full stack com Node.js, em trabalho remoto no Brasil. Me envie um e-mail ou WhatsApp que retorno o quanto antes."
+                    : "I'm interested in junior full stack development opportunities with Node.js, working remotely in Brazil. Send me an email or WhatsApp and I'll reply as soon as possible."}
                 </p>
               </div>
 
@@ -227,17 +216,14 @@ export default function Contact() {
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground mb-3">
                   {locale === "pt" ? "Currículo" : "Résumé"}
                 </p>
-                <div className="space-y-2">
-                  <a
-                    href={resumeUrl}
-                    download
-                    className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-primary/[0.06] border border-primary/[0.15] hover:border-primary/[0.3] hover:bg-primary/[0.1] text-sm font-medium text-primary/80 hover:text-primary transition-all duration-300"
-                  >
-                    <Download size={14} />
-                    <span>🇧🇷</span>
-                    {locale === "pt" ? "Download CV em Português" : "Download CV in Portuguese"}
-                  </a>
-                </div>
+                <a
+                  href={resumeUrl}
+                  download
+                  className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-primary/[0.06] border border-primary/[0.15] hover:border-primary/[0.3] hover:bg-primary/[0.1] text-sm font-medium text-primary/80 hover:text-primary transition-all duration-300"
+                >
+                  <Download size={14} />
+                  {locale === "pt" ? "Baixar currículo em PDF" : "Download résumé (PDF)"}
+                </a>
               </div>
 
               <div>

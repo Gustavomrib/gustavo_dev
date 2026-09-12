@@ -114,7 +114,7 @@ export default function OpenGraphImage() {
           </div>
 
           <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
-            {["React", "Next.js", ".NET", "Python"].map((item) => (
+            {["JavaScript", "TypeScript", "Node.js", "React"].map((item) => (
               <div
                 key={item}
                 style={{

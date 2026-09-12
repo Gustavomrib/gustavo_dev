@@ -4,19 +4,19 @@ import { siteData, t } from "@/data/site";
 import { useLocale } from "@/context/LocaleContext";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Server, Brain, Zap, Layers, Users } from "lucide-react";
+import { Code2, Brain, Database, Users, Puzzle } from "lucide-react";
 
 const interestIcons: Record<string, React.ReactNode> = {
-  "Backend com Java": <Server size={16} />,
-  "Backend with Java": <Server size={16} />,
+  "Desenvolvimento Full Stack": <Code2 size={16} />,
+  "Full Stack Development": <Code2 size={16} />,
   "Inteligência Artificial": <Brain size={16} />,
   "Artificial Intelligence": <Brain size={16} />,
-  "Automação de Processos": <Zap size={16} />,
-  "Process Automation": <Zap size={16} />,
-  "Liderança & Gestão": <Users size={16} />,
-  "Leadership & Management": <Users size={16} />,
-  "Arquitetura de Software": <Layers size={16} />,
-  "Software Architecture": <Layers size={16} />,
+  "Bancos de Dados": <Database size={16} />,
+  Databases: <Database size={16} />,
+  "Liderança de Equipes": <Users size={16} />,
+  "Team Leadership": <Users size={16} />,
+  "Resolução de Problemas": <Puzzle size={16} />,
+  "Problem-Solving": <Puzzle size={16} />,
 };
 
 export default function About() {
@@ -48,7 +48,7 @@ export default function About() {
                 className="group flex items-center gap-3 px-4 py-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-primary/20 hover:bg-primary/[0.04] transition-all duration-300"
               >
                 <span className="text-primary/60 group-hover:text-primary transition-colors">
-                  {interestIcons[interest] ?? <Server size={16} />}
+                  {interestIcons[interest] ?? <Code2 size={16} />}
                 </span>
                 <span className="text-sm font-medium text-muted group-hover:text-foreground transition-colors">
                   {interest}

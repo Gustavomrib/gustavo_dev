@@ -65,23 +65,15 @@ function TypingTerminal({ reduceMotion }: { reduceMotion: boolean }) {
   );
 
   return (
-    <div className="inline-block rounded-xl overflow-hidden border border-white/[0.07] bg-white/[0.02]">
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-white/[0.025] border-b border-white/[0.05]">
-        <span className="w-2 h-2 rounded-full bg-red-500/50" aria-hidden="true" />
-        <span className="w-2 h-2 rounded-full bg-yellow-500/50" aria-hidden="true" />
-        <span className="w-2 h-2 rounded-full bg-green-500/50" aria-hidden="true" />
-        <span className="ml-2 font-mono text-[10px] text-muted-foreground/40 select-none">
-          gustavomrib.dev — bash
-        </span>
-      </div>
-      <div className="px-4 py-3 font-mono text-[13px]">
+    <div className="inline-block rounded-lg overflow-hidden border border-white/[0.06] bg-white/[0.015]">
+      <div className="px-3 py-2 font-mono text-[12px]">
         <div>
           <span className="text-primary select-none">❯ </span>
           <span className="text-foreground">{cmdText}</span>
           {!outText && cursor}
         </div>
         {outText && (
-          <div className="mt-1.5">
+          <div className="mt-1">
             <span className="text-primary font-semibold">{outText}</span>
             {cursor}
           </div>
@@ -226,7 +218,7 @@ export default function Hero() {
         <div className="flex-1 text-center lg:text-left w-full">
           <motion.div
             {...reveal(0.05, 12)}
-            className="mb-7 flex justify-center lg:justify-start"
+            className="mb-5 flex justify-center lg:justify-start"
           >
             <TypingTerminal reduceMotion={!!reduceMotion} />
           </motion.div>
@@ -303,12 +295,14 @@ export default function Hero() {
             <span className="inline-flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.6)]" />
               {locale === "pt"
-                ? "Disponível para Dev Java Júnior"
-                : "Available for Junior Java Developer roles"}
+                ? "Disponível para vagas júnior remotas"
+                : "Available for remote junior roles"}
             </span>
             <span className="inline-flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-primary/80 shadow-[0_0_14px_rgba(45,140,110,0.55)]" />
-              Java · Spring Boot · Back-end
+              {locale === "pt"
+                ? "Foco de estudos: JavaScript, TypeScript, Node.js e React"
+                : "Study focus: JavaScript, TypeScript, Node.js and React"}
             </span>
           </motion.div>
         </div>

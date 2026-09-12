@@ -11,23 +11,23 @@ export const siteData = {
   firstName: "Gustavo",
   fullName: "Gustavo Marques Lopes Ribeiro",
   role: {
-    pt: "Desenvolvedor Java em formação",
-    en: "Java Developer in training",
+    pt: "Desenvolvimento Full Stack com Node.js em formação",
+    en: "Full Stack development with Node.js in training",
   },
   headline: {
-    pt: "Estudante de Engenharia de Software (6º período), focado em Java & Spring Boot — em busca da primeira oportunidade em Portugal.",
-    en: "Software Engineering student (6th semester), focused on Java & Spring Boot — seeking my first opportunity in Portugal.",
+    pt: "Estudante de Engenharia de Software, estagiário em IA e bolsista de iniciação científica na UFF. Construindo minha base em desenvolvimento web, com foco em oportunidades júnior remotas no Brasil.",
+    en: "Software Engineering student, AI intern and undergraduate research scholar at UFF. Building my foundation in web development, focused on remote junior opportunities in Brazil.",
   },
   description: {
-    pt: "Foco em Java & Spring Boot, com base técnica em .NET/C# e React. Experiência de 2+ anos em logística com liderança de equipes.",
-    en: "Focused on Java & Spring Boot, with a technical background in .NET/C# and React. 2+ years of experience in logistics with team leadership.",
+    pt: "Foco de estudos em JavaScript, TypeScript, Node.js e React. Experiência anterior de 2+ anos em logística com liderança de equipes.",
+    en: "Study focus on JavaScript, TypeScript, Node.js and React. 2+ years of prior experience in logistics with team leadership.",
   },
   cta: {
-    pt: "Aberto a vagas de Dev Java Júnior · Interesse em Portugal",
-    en: "Open to Junior Java Developer roles · Interest in Portugal",
+    pt: "Aberto a vagas júnior remotas em desenvolvimento Full Stack com Node.js",
+    en: "Open to remote junior Full Stack (Node.js) roles",
   },
   avatarUrl: "/avatar.jpg",
-  resumeUrl: "/Gustavo_Marques_CV.pdf?v=2026-07",
+  resumeUrl: "/Gustavo_Marques_CV.pdf?v=2026-09",
   location: "Barra Mansa, Rio de Janeiro",
 
   // --- Links Sociais ---
@@ -43,70 +43,50 @@ export const siteData = {
     title: { pt: "Sobre Mim", en: "About Me" },
     paragraphs: {
       pt: [
-        "Sou estudante de Engenharia de Software na UBM, cursando o 6º período. Estou em transição de stack: construí minha base técnica com .NET/C# e React, e hoje meu foco está em Java e Spring Boot — ecossistema onde quero desenvolver minha carreira como desenvolvedor backend.",
-        "Atualmente sou estagiário de TI na Tecnored, onde trabalho com Python, automação de processos e aplicações de Inteligência Artificial e Machine Learning.",
-        "Antes de migrar para a tecnologia, trabalhei por mais de 2 anos em logística — liderando equipes, automatizando controles via Excel e tomando decisões sob pressão. Essa experiência me ensinou a resolver problemas de forma estratégica, comunicar com clareza e entregar resultados: habilidades que trago diretamente para o desenvolvimento de software.",
+        "Sou estudante de Engenharia de Software, atualmente no 6º período, com foco de estudos em desenvolvimento full stack com Node.js. Estou construindo minha base em JavaScript, TypeScript, React e bancos de dados para desenvolver aplicações web completas.",
+        "Atualmente sou estagiário na Célula de Inteligência Artificial da Tecnored e participo de uma bolsa de iniciação científica na Universidade Federal Fluminense (UFF), no Aterrado, voltada ao desenvolvimento full stack. Na bolsa, estou na etapa inicial de estudos e preparação técnica.",
+        "Antes de ingressar em tecnologia, atuei por mais de dois anos em logística. Essa experiência contribuiu para desenvolver organização, comunicação, liderança de equipes e resolução de problemas. Meu objetivo é evoluir para uma oportunidade júnior remota no Brasil.",
       ],
       en: [
-        "I am a Software Engineering student at UBM, currently in my 6th semester. I am in the middle of a stack transition: I built my technical foundation with .NET/C# and React, and my current focus is Java and Spring Boot — the ecosystem where I want to build my career as a backend developer.",
-        "I'm currently an IT intern at Tecnored, working with Python, process automation, and Artificial Intelligence/Machine Learning applications.",
-        "Before moving into tech, I worked for over 2 years in logistics — leading teams, automating controls via Excel, and making decisions under pressure. That experience taught me to solve problems strategically, communicate clearly, and deliver results: skills I bring directly to software development.",
+        "I'm a Software Engineering student, currently in my 6th semester, with a study focus on full stack development with Node.js. I'm building my foundation in JavaScript, TypeScript, React and databases to develop complete web applications.",
+        "I'm currently an intern at Tecnored's Artificial Intelligence Cell and I take part in an undergraduate research scholarship at Universidade Federal Fluminense (UFF), in Aterrado, focused on full stack development. In the scholarship, I'm in the initial stage of study and technical preparation.",
+        "Before moving into tech, I worked for over two years in logistics. That experience helped me develop organization, communication, team leadership and problem-solving skills. My goal is to grow into a remote junior opportunity in Brazil.",
       ],
     },
     interests: {
       pt: [
-        "Backend com Java",
+        "Desenvolvimento Full Stack",
         "Inteligência Artificial",
-        "Automação de Processos",
-        "Liderança & Gestão",
-        "Arquitetura de Software",
+        "Bancos de Dados",
+        "Liderança de Equipes",
+        "Resolução de Problemas",
       ],
       en: [
-        "Backend with Java",
+        "Full Stack Development",
         "Artificial Intelligence",
-        "Process Automation",
-        "Leadership & Management",
-        "Software Architecture",
+        "Databases",
+        "Team Leadership",
+        "Problem-Solving",
       ],
     },
   },
 
-  // --- Skills ---
+  // --- Skills / Estudos ---
   skills: {
-    // Certificado (Cisco) — conceitos comprovados
-    primary: [
-      {
-        name: "Fundamentos de Cibersegurança",
-        label: { pt: "Certificado — Cisco", en: "Certified — Cisco" },
-        description: {
-          pt: "Confidencialidade, integridade e disponibilidade (CIA), valor da informação, risco, incidentes e cultura de segurança.",
-          en: "Confidentiality, integrity and availability (CIA triad), the value of information, risk, incidents and security culture.",
-        },
-      },
-      {
-        name: "Ameaças Cibernéticas",
-        label: { pt: "Certificado — Cisco", en: "Certified — Cisco" },
-        description: {
-          pt: "Malware, phishing, engenharia social, brute force, SQL Injection, XSS e ataques de DoS/DDoS — principais vetores e como reconhecê-los.",
-          en: "Malware, phishing, social engineering, brute force, SQL Injection, XSS and DoS/DDoS attacks — main vectors and how to recognize them.",
-        },
-      },
-    ],
-    // Trilha em andamento (Alura) — ainda em estudo, sem certificação concluída
-    tools: [
-      { name: "Redes & Protocolos", label: { pt: "Em aprendizado", en: "Learning" } },
-      { name: "Segurança em Aplicações", label: { pt: "Em aprendizado", en: "Learning" } },
-      { name: "Linux & Windows", label: { pt: "Em aprendizado", en: "Learning" } },
-      { name: "Criptografia & MFA", label: { pt: "Em aprendizado", en: "Learning" } },
-      { name: "Pentest Básico", label: { pt: "Em aprendizado", en: "Learning" } },
-    ],
-    learningTrack: [
-      "Docker & Cloud Security",
-      "DevSecOps & CI/CD",
-      "SIEM & Resposta a Incidentes",
-      "Governança, Risco & Compliance (LGPD)",
-    ],
-    legacy: ["Java", "C#", ".NET", "React", "TypeScript", "Node.js"],
+    title: { pt: "Foco de aprendizado", en: "Learning focus" },
+    description: {
+      pt: "Estou desenvolvendo minha base em programação e aplicações web por meio de estudos e projetos práticos.",
+      en: "I'm building my foundation in programming and web applications through study and hands-on projects.",
+    },
+    focus: {
+      pt: ["JavaScript", "TypeScript", "Node.js", "React", "Bancos de dados"],
+      en: ["JavaScript", "TypeScript", "Node.js", "React", "Databases"],
+    },
+    previousLabel: { pt: "Experiências anteriores", en: "Previous background" },
+    previous: {
+      pt: ["Java", "C#", ".NET", "Cibersegurança (fundamentos)"],
+      en: ["Java", "C#", ".NET", "Cybersecurity (fundamentals)"],
+    },
     soft: [
       { pt: "Liderança", en: "Leadership" },
       { pt: "Comunicação assertiva", en: "Assertive communication" },
@@ -124,8 +104,8 @@ export const siteData = {
       id: "1",
       title: "Auth App",
       description: {
-        pt: "Sistema web com autenticação via Google OAuth, proteção de rotas e cadastro de usuários com geração de JSON. Demonstra domínio de autenticação moderna e gerenciamento de estado.",
-        en: "Web system with Google OAuth authentication, protected routes and user registration with JSON generation. Demonstrates mastery of modern authentication and state management.",
+        pt: "Aplicação de estudo com Next.js, TypeScript e Firebase, com autenticação via Google e formulário de cadastro com exportação em JSON.",
+        en: "Study project built with Next.js, TypeScript and Firebase, featuring Google authentication and a registration form with JSON export.",
       },
       image: "",
       tags: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS"],
@@ -136,37 +116,47 @@ export const siteData = {
     },
   ],
 
-  // --- Categorias de Projetos (para filtro) ---
-  projectCategories: [
-    { value: "all", label: { pt: "Todos", en: "All" } },
-    { value: "frontend", label: { pt: "Front-end", en: "Front-end" } },
-  ],
-
-  // --- Experiência / Jornada ---
+  // --- Experiência / Formação ---
   journey: [
     {
-      year: "05/2026 — Atual",
+      year: { pt: "Atual", en: "Current" },
       title: {
-        pt: "Estagiário de TI",
-        en: "IT Intern",
+        pt: "Estagiário — Célula de Inteligência Artificial",
+        en: "Intern — Artificial Intelligence Cell",
       },
       company: { pt: "Tecnored", en: "Tecnored" },
       description: {
-        pt: "Atuação com Python, automação de processos e aplicações de Inteligência Artificial e Machine Learning.",
-        en: "Working with Python, process automation, and Artificial Intelligence/Machine Learning applications.",
+        pt: "Apoio a iniciativas internas de IA aplicada e automação de processos, com participação em estudos de ferramentas e organização de orientações para as equipes.",
+        en: "Supporting internal applied-AI and process-automation initiatives, taking part in tool research and organizing guidance materials for the teams.",
       },
       type: "work" as const,
     },
     {
-      year: "2024 — Atual",
+      year: { pt: "09/2026 — Atual", en: "09/2026 — Current" },
+      title: {
+        pt: "Bolsista de Iniciação Científica",
+        en: "Undergraduate Research Scholar",
+      },
+      company: {
+        pt: "Universidade Federal Fluminense (UFF) — Aterrado",
+        en: "Universidade Federal Fluminense (UFF) — Aterrado",
+      },
+      description: {
+        pt: "Participação em projeto voltado ao desenvolvimento full stack. Atualmente na fase inicial de estudos de conceitos e preparação técnica para as atividades do projeto.",
+        en: "Participation in a project focused on full stack development. Currently in the initial stage of studying concepts and technical preparation for the project's activities.",
+      },
+      type: "education" as const,
+    },
+    {
+      year: { pt: "2024 — Atual", en: "2024 — Current" },
       title: {
         pt: "Estudante de Engenharia de Software",
         en: "Software Engineering Student",
       },
       company: { pt: "UBM — Universidade de Barra Mansa", en: "UBM — Barra Mansa University" },
       description: {
-        pt: "Graduação em andamento (6º período). Foco atual em Java, Spring Boot e arquitetura de software, com base construída em desenvolvimento full stack e banco de dados.",
-        en: "Undergraduate degree in progress (6th semester). Current focus on Java, Spring Boot and software architecture, built on a foundation of full stack development and databases.",
+        pt: "Graduação em andamento (6º período), com foco de estudos em desenvolvimento full stack: JavaScript, TypeScript, Node.js, React e bancos de dados.",
+        en: "Undergraduate degree in progress (6th semester), with a study focus on full stack development: JavaScript, TypeScript, Node.js, React and databases.",
       },
       type: "education" as const,
     },
@@ -213,11 +203,10 @@ export const siteData = {
 
   // --- Navegação ---
   navigation: [
-    { label: { pt: "Início", en: "Home" }, href: "#hero" },
     { label: { pt: "Sobre", en: "About" }, href: "#about" },
-    { label: { pt: "Skills", en: "Skills" }, href: "#skills" },
     { label: { pt: "Projetos", en: "Projects" }, href: "#projects" },
-    { label: { pt: "Jornada", en: "Journey" }, href: "#journey" },
+    { label: { pt: "Experiência e formação", en: "Experience & education" }, href: "#journey" },
+    { label: { pt: "Estudos", en: "Studies" }, href: "#skills" },
     { label: { pt: "Contato", en: "Contact" }, href: "#contact" },
   ],
 };

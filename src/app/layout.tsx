@@ -35,41 +35,39 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const metaDescription =
+  "Portfólio de Gustavo Marques Lopes Ribeiro — estudante de Engenharia de Software, estagiário em IA e bolsista de iniciação científica na UFF, com foco em desenvolvimento Full Stack com Node.js para vagas júnior remotas no Brasil.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Gustavo Marques Lopes Ribeiro | Desenvolvedor Java em formação",
-  description:
-    "Portfólio de Gustavo Marques Lopes Ribeiro — estudante de Engenharia de Software focado em Java & Spring Boot, buscando primeira oportunidade em Portugal.",
+  title: "Gustavo Marques Lopes Ribeiro | Desenvolvimento Full Stack com Node.js em formação",
+  description: metaDescription,
   keywords: [
-    "desenvolvedor java",
-    "java",
-    "spring boot",
-    "backend",
-    "júnior",
-    "portugal",
+    "desenvolvedor full stack",
+    "node.js",
+    "javascript",
+    "typescript",
     "react",
-    "next.js",
-    ".net",
-    "c#",
-    "python",
-    "portfolio",
+    "júnior",
+    "remoto",
+    "backend",
+    "frontend",
     "engenharia de software",
+    "portfolio",
   ],
   authors: [{ name: "Gustavo Marques Lopes Ribeiro" }],
   creator: "Gustavo Marques Lopes Ribeiro",
   openGraph: {
-    title: "Gustavo Marques Lopes Ribeiro | Desenvolvedor Java em formação",
-    description:
-      "Estudante de Engenharia de Software focado em Java & Spring Boot, buscando primeira oportunidade em Portugal.",
+    title: "Gustavo Marques Lopes Ribeiro | Desenvolvimento Full Stack com Node.js em formação",
+    description: metaDescription,
     type: "website",
     locale: "pt_BR",
     siteName: "Gustavo Marques Lopes Ribeiro - Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gustavo Marques Lopes Ribeiro | Desenvolvedor em formação",
-    description:
-      "Estudante de Engenharia de Software focado em Java & Spring Boot, buscando primeira oportunidade em Portugal.",
+    title: "Gustavo Marques Lopes Ribeiro | Desenvolvimento Full Stack com Node.js em formação",
+    description: metaDescription,
   },
   robots: {
     index: true,
